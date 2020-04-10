@@ -1,0 +1,152 @@
+\section{Plan de la formation \LaTeX}
+
+\begin{enumerate}
+  
+  %% 4h
+\item Introduction
+  \begin{enumerate}
+  \item Présentation de \TeX\ \& \LaTeX
+  \item Quelques sources d'information indispensables
+  \item Comparaisons entre les différents systèmes disponibles
+  \item Premiers pas avec \LaTeX
+  \item Initiation à l'utilisation d'\emph{Emacs}
+  \end{enumerate}
+  
+  %% 4h
+\item Rédaction de documents avec \LaTeX\
+  \begin{enumerate}
+  \item \LaTeX\ et les caractères accentués
+  \item \LaTeX, mise en page, typographie
+  \item Les caractères spéciaux (caractères réservés)
+  \item Les composants d'un document \LaTeX\ (classe de documents, extensions,
+    options)
+  \item La classe de documents \emph{article} : votre premier document avec
+    \LaTeX
+  \end{enumerate}
+
+%\item Formats de fichiers à connaître (tex, dvi, ps, pdf)
+%\item Création de documents imprimables~: dvips, ghostscript, pdflatex
+  
+% 6h
+\item \LaTeX : Utilisation avancée
+  \begin{enumerate}
+  \item Comment créer un fichier PDF à partir d'un fichier \LaTeX
+  \item Les flottants -- 1 : graphiques
+    \begin{enumerate}
+    \item Insérer une image
+    \item Positionner automatiquement un graphique sur la page : la notion de
+      \og flottant \fg
+    \end{enumerate}
+  \item Les flottants -- 2 : tableaux
+    \begin{enumerate}
+    \item Construire un tableau
+    \item Les tableaux flottants
+    \item Les tableaux avec saut de page
+    \end{enumerate}
+  \end{enumerate}
+
+
+\item Les éléments importants lors de la rédaction d'un document
+
+  \begin{enumerate}
+
+  \item Les principaux environnements disponibles
+    
+  \item Renvois, Indexes, Tables de matières, Annexes
+    
+  \end{enumerate}
+
+\item La gestion des références bibliographiques (\textsc{BIB}\TeX)
+    
+  \begin{enumerate}
+  \item \LaTeX et \BiBTeX
+  \item Créer un fichier \BiBTeX : une base de données bibliographiques
+  \item Citer les références dans le texte : version standard + version natbib
+  \item Compiler le document pour formater automatiquement les références
+  \end{enumerate}
+
+
+% \item \LaTeX et les autres formats de documents
+
+%   \begin{enumerate}
+%   \item DVI, PS, PDF
+%   \item Exporter vers RTF, HTML
+%   \item Convertir des documents Word vers \LaTeX
+%   \item Exporter des graphiques depuis Excel au format \og image \fg
+%   \end{enumerate}
+
+\item Comment obtenir des mises en page personnalisées
+    
+  \begin{enumerate}
+  \item les autres classes de documents
+    \begin{enumerate}
+    \item Classes standard
+      \begin{itemize}
+      \item book, report : pour les thèses
+      \item letter : pour les\ldots\ lettres
+      \item seminar, prosper, beamer : pour les transparents et présentations
+        multimédia
+      \item a0poster : pour les posters
+      \item apa.cls : American Psychological Association (pour les soumissions
+        d'articles)
+      \item etc.
+      \end{itemize}
+    \end{enumerate}
+  \item Trucs et astuces pour la personnalisation
+    \begin{enumerate}
+    \item des marges, de l'espacement entre les lignes
+    \item des titres de section
+    \item des en-têtes et pieds de page
+    \item et divers points de personnalisation (polices, veuves et orphelines,
+      indentation, espacement des paragraphes, notes)
+    \item Créer son fichier d'extension personnel ou un gabarit standard
+    \end{enumerate}
+  \end{enumerate}
+  
+  %% \item Les polices de caractères
+  
+  \item L'extension \emph{babel} ou comment écrire dans des langues autres que
+    l'anglais
+  
+  %%\item PSTricks~: un outil pour générer des graphiques et positionner les objets
+  %%  dans un document (très utile pour les posters et les transparents).
+  
+  \item Problèmes divers
+  
+    \begin{enumerate}
+    \item Correction orthographique avec Emacs et Ispell
+    \item Babel et le francais
+    \item Besoins spécifiques (Schémas, Organigrammes --picture, eepic--,
+      \'Equations (ams)
+    \item Problèmes posés par les logiciels ou outils spécifiques et leur
+      utilisation avec \LaTeX (tableaux ou graphiques sous Excel -- ou
+      importation de données d'autres logiciels\ldots, Bases de données
+      bibliographiques et exportation au format \BiBTeX).
+    \end{enumerate}
+    
+  \item Outils spécifiques pour la linguistique :
+    
+    \begin{enumerate}
+    \item TIPA : les polices phonétiques 
+    \item AVM : les matrices de traits (cf.  phonologie déclarative, HPSG) 
+    \item qtree et treedvips : les arbres (syntaxiques notamment).
+    \end{enumerate}
+  
+\end{enumerate}
+
+
+% \section{Autres points prévus}
+
+% \vfill
+% \begin{itemize}
+% % \item Nous consacrerons également quelques heures à des exercices de recherche
+% %   d'information dans la FAQ ou dans la documentation de \LaTeX\ afin de résoudre
+% %   des problèmes précis.
+% % \item Nous aborderons également le problème de la conversion de documents Word
+% %   vers le format \LaTeX\ (et inversement).
+% \item Je pourrai vous distribuer un CD de la distribution TeXLive 2003. Et nous
+%   pourrons aussi voir rapidement quelles autres versions du formateur \LaTeX\ 
+%   sont disponibles.
+% \end{itemize}
+% \vfill
+

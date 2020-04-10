@@ -1,0 +1,20 @@
+
+\fancyfoot[R]{\vspace{-12pt} \textcolor{\BGColorDark}{%
+    \tiny \ttfamily Méthodologie de l'informatique -- Initiation à \LaTeX{}
+    %%-- \og Sciences du Langage -- Informatisation des Langues \fg
+    -- \input{univ-year}
+    -- [\thepage] \vspace{18pt}
+  }
+}
+
+
+\title{\Huge Master 2 \og Sciences du Langage \fg -- parcours \og Informatisation des Langues \fg\\
+  Méthodologie de l'informatique -- Initiation à \LaTeX}
+\author{Olivier Crouzet}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "M2-Initiation-LaTeX-couleur"
+%%% End: 

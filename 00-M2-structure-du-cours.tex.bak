@@ -1,0 +1,250 @@
+
+\chapter{Présentation de \LaTeX}
+\begin{center}
+\begin{minipage}[r]{0.5\linewidth}
+  Présentation des caractéristiques de la rédaction de documents avec
+  \LaTeX. Différences par rapport aux traitements de texte
+  WYSIWYG. Sources d'information. Structuration de documents. Notions
+  d'instruction et d'environnement.
+  \end{minipage}
+\end{center}
+
+\include{inputs/presentation-LaTeX}
+
+
+
+\chapter{Présentation d'Emacs}
+\begin{center}
+\begin{minipage}[r]{0.5\linewidth}
+  Nous allons apprendre à utiliser l'éditeur de texte Emacs afin de
+  pouvoir être plus à l'aise avec la rédaction de documents
+  \LaTeX.
+  \end{minipage}
+\end{center}
+
+\include{inputs/emacs}
+
+
+\chapter{Premier contact avec \LaTeX}
+
+\begin{center}
+\begin{minipage}[r]{0.5\linewidth}
+  Ce chapitre a pour but de vous présenter les fondements essentiels
+  de la rédaction de textes avec \LaTeX.
+  \end{minipage}
+\end{center}
+
+\include{inputs/standard-LaTeX}
+
+
+\chapter{\LaTeX\ et les langues}
+\label{cha:babel}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Prise en charge des spécificités linguistiques avec \LaTeX\
+    (typographie, vocabulaire automatique\ldots).
+  \end{minipage}
+\end{center}
+
+\include{inputs/langues-LaTeX}
+
+
+
+\chapter{\LaTeX\ et la linguistique}
+\label{cha:babel}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Quelques liens vers des outils ou des informations utiles pour un
+    linguiste utilisant \LaTeX. Transcription phonétique avec
+    TIPA. N'hésitez pas à passer rapidement ce chapitre pour y revenir
+    plus tard lorsque vous commencerez à maîtriser \LaTeX.
+  \end{minipage}
+\end{center}
+
+\include{inputs/linguistics-LaTeX}
+
+
+
+\chapter{Utilisation avancée de \LaTeX}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Vous apprendrez à utiliser de nouveaux environnements, de
+    nouvelles instructions et à créer des fichiers PDF.
+  \end{minipage}
+\end{center}
+
+\include{inputs/advanced-LaTeX}
+
+
+% \chapter{Autres classes de documents \LaTeX}
+% \begin{center}
+%   \begin{minipage}[r]{0.5\linewidth}
+    
+%   \end{minipage}
+% \end{center}
+
+% \include{inputs/formats-LaTeX}
+% report, book
+% letter, lettre
+% a0poster, beamer 
+
+
+\chapter{Les objets flottants : insertion de graphiques}
+\label{cha:graphiques}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Vous allez maintenant apprendre à insérer des graphiques ou des
+    images et à manipuler ce que l'on appelle des \og objets flottants
+    \fg.
+  \end{minipage}
+\end{center}
+
+\include{inputs/floats-graph-LaTeX}
+
+
+\chapter{Les objets flottants : insertion de tableaux}
+\label{cha:tableaux}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Les tableaux sont aussi des objets qui peuvent flotter. Nous
+    allons donc retrouver certains points abordés dans le cas des
+    graphiques. Mais vous allez aussi apprendre à créer des tableaux
+    de données. Cette partie devrait vous prendre beaucoup de temps
+    car, si les tableaux produits par LaTeX peuvent être d'une qualité
+    typographique exceptionnelle, ceci demandera beaucoup de travail
+    de votre part.
+  \end{minipage}
+\end{center}
+
+\include{inputs/floats-table-LaTeX}
+
+
+
+
+\chapter{Gestion des références bibliographiques}
+\label{cha:bibtex}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Vous devriez maintenant être en mesure de rédiger des documents
+    assez complexes incluant des flottants (graphiques, tableaux),
+    différents niveaux de section, des annexes, des renvois, des
+    paragraphes rédigés dans des langues différentes (en utilisant
+    Babel)\ldots Nous allons maintenant étudier la gestion de
+    bibliographies avec \LaTeX\ (constitution d'une base de donnnées
+    bibliographiques, insertion d'appels, compilation de la
+    bibliographie pour mettre en forme les appels et la liste des
+    références bibliographiques).
+  \end{minipage}
+\end{center}
+
+\include{inputs/biblio-LaTeX}
+
+
+\chapter{L'extension Ref\TeX\ d'Emacs}
+\label{cha:reftex}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    L'extension REF\TeX\ d'Emacs permet de gérer plus facilement le
+    processus de citations bibliographiques et de renvois vers les
+    parties du document.
+  \end{minipage}
+\end{center}
+
+\include{inputs/refTeX}
+
+
+\chapter{Utilisation de l'extension \texttt{natbib}}
+\label{cha:natbib}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    L'extension \LaTeX\ \emph{natbib} est une extension
+    bibliographique qui permet de produire des bibliographies et des
+    appels bibliographiques conformes à certaines exigences n'ayant
+    pas été prévues en standard. On retrouve ce type de \og standard
+    \fg dans les sciences de la vie mais aussi dans certains
+    (sous-)domaines des sciences humaines et sociales (certaines
+    branches de la psychologie, de la linguistique, de la sociologie,
+    de la géographie\ldots)
+  \end{minipage}
+\end{center}
+
+\include{inputs/biblio-natbib}
+
+
+ \chapter{Utilisation de l'extension \texttt{jurabib}}
+ \label{cha:jurabib}
+ \begin{center}
+   \begin{minipage}[r]{0.5\linewidth}
+     L'extension \LaTeX\ \emph{natbib} est une extension
+     bibliographique qui permet de produire des bibliographies et des
+     appels bibliographiques conformes à certaines exigences n'ayant
+     pas été prévues en standard. On retrouve ce type de \og standard
+     \fg en littérature et dans certains (sous-)domaines des sciences
+     humaines et sociales (psychologie, linguistique, philosophie,
+     histoire\ldots).
+
+   \end{minipage}
+ \end{center}
+
+ \include{inputs/biblio-jurabib}
+
+
+\chapter{Personnalisation de la mise en page}
+\label{cha:personnalisation}
+\begin{center}
+  \begin{minipage}[r]{0.5\linewidth}
+    Ce chapitre vous permettra de mieux comprendre comment on peut
+    influencer la mise en page prévue en standard par
+    \LaTeX. Modification des formats de page, des marges, des
+    paragraphes, des titres de section, en-têtes et pieds de
+    page\ldots
+  \end{minipage}
+\end{center}
+
+\include{inputs/personnalisation-LaTeX}
+
+% double interligne
+% geometry
+% formatage page de titre (standard Université)
+              
+
+
+
+
+%\chapter{L'indexation des documents}
+%\include{indexation-LaTeX}
+
+
+%\chapter{Recherche et Installation d'extensions supplémentaires}
+%\include{inputs/install-LaTeX-extensions}
+
+
+%\chapter{Questions et problèmes divers}
+%\include{inputs/misc-LaTeX}
+
+
+%\chapter{Outils pour la linguistique}
+%\include{inputs/linguistique.tex}
+
+\listoffigures
+\label{list:fig}
+
+\listoftables
+\label{list:tab}
+
+%\listof{exemple}{Liste des exemples}
+
+%\newpage
+% \vspace*{4cm}
+% \begin{center}
+% \large Ce document peut-être téléchargé sur le site :\\
+% \url{http://www.lettres.univ-nantes.fr/sdl/teaching/master/latex/}  
+% \end{center}
+% \vfill
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "ED-Initiation-LaTeX-couleur"
+%%% End: 
+

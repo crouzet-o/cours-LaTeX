@@ -1,0 +1,85 @@
+\section{En-tête du document}
+
+L'extension \emph{natbib} permet de générer des références
+bibliographiques de type \emph{auteur (année)}. Pour utiliser
+l'extension \emph{natbib}, vous appelerez cette extension dans
+l'en-tête du document :
+
+
+\begin{verbatim}
+\usepackage[longnamesfirst,round]{natbib}
+\end{verbatim}
+
+Les options (facultatives) présentées ici ont pour fonction (1) de
+forcer l'affichage de la liste intégrale des auteurs au premier appel
+et (2) de présenter l'année de publication entre parenthèses.
+
+
+
+
+
+
+
+\section{Appel des références bibliographiques}
+
+Afin d'utiliser au mieux l'extension natbib, il convient de prendre
+l'habitude d'utiliser différentes formes de \verb1\cite1 afin de
+contrôler précisément le type de renvoi bibliographique :
+
+
+\begin{itemize}
+\item \verb1\cite{} = \citet{}1 (c'est la forme par défaut, cite le
+  nom d'auteur(s) \emph{dans le texte} et affiche l'année entre
+  parenthèses);
+
+\item \verb1\citep{}1 (tout entre parenthèses, une virgule sépare la
+  liste des auteurs de l'année);
+
+\item \verb1\citeauthor{}1 (auteur seul);
+
+\item \verb1\citeyear{}1 (année seule);
+
+\item \verb1\cite[chap.~2]{}1 (commentaire après la citation);
+
+\item \verb1\cite[cf.][]{}1 (commentaire avant la citation);
+
+\item \verb1\cite[cf.][chap.~2]{}1 (commentaires avant \emph{et} après
+  la citation);
+
+\item \verb1\cite*{}1 (force la citation de tous les auteurs au lieu
+  de et al. pour cet appel, toutes les autres formes affichant les
+  noms d'auteurs peuvent être suivies d'une astérisque pour produire
+  le même effet).
+\end{itemize}
+
+
+
+
+
+
+\section{Formatage de la bibliographie}
+
+Comme d'habitude, vous introduirez --à l'endroit où vous souhaitez
+faire apparaître votre liste de références bibliographiques-- les
+commandes suivantes :
+
+\begin{verbatim}
+\bibliography{nom-de-votre-base}
+\bibliographystyle{abbrvnat}
+\end{verbatim}
+
+Pour le reste, le fonctionnement est similaire. L'extension
+\emph{natbib} fournit des formats de bibliographies permettant de
+remplacer les formats standards (les noms sont similaires mais se
+terminent par -nat).
+
+Vous pouvez aussi utiliser le format \verb1apaformat.bst1 que je tiens
+à votre disposition et qui reproduit des exigences communes dans de
+nombreux sous-domaines des sciences humaines et sociales (type
+\emph{American Psychological Association}).
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/home/teaching/cours/sdl/M2/LaTeX/slides/recueil-initiation-LaTeX"
+%%% End: 

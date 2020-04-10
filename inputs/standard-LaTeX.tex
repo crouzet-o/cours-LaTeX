@@ -1,0 +1,499 @@
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  STANDARD LaTeX
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+\section{\LaTeX{} et les caractères accentués}
+
+Créez un nouveau document en utilisant des caractères accentués dans le texte :
+
+\begin{exemple}[H] %\footnotesize
+  %\footnotesize
+%\caption{Usage des caractères accentués avec \LaTeX.}
+\begin{verbatim}
+\documentclass[a4paper]{article}
+\begin{document}
+    Rédigeons un document \LaTeX.
+\end{document}
+\end{verbatim}
+\end{exemple}
+
+Que remarquez-vous dans le fichier DVI ?
+
+Afin d'utiliser les caractères accentués, deux solutions s'offrent à
+nous :
+
+\begin{enumerate}
+\item Utiliser \verb1\'e1 pour é, \verb1\`e1 pour è, \verb1\^e1 pour
+  ê, \verb1\"e1 pour ë\ldots On fait de même pour n'importe quelle
+  autre lettre (on peut même ainsi obtenir \"p, \^z\ldots des
+  majuscules accentuées\footnote{Notez que les règles de typographie
+    française imposent l'accentuation des majuscules} : \'E, \`A,
+  \ldots).
+\item Ajouter, dans le préambule du document l'appel à
+  l'\emph{extension} \og inputenc \fg\ (La méthode précédente reste
+  valable) : \verb+\usepackage[option]{inputenc}+..
+\end{enumerate}
+
+On obtient alors :
+\begin{exemple}[H] %\footnotesize
+  %\footnotesize
+  \caption{Usage des caractères accentués avec \LaTeX (encodage
+    iso-8859-1).}
+\begin{verbatim}
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+    Rédigeons un document \LaTeX.
+\end{document}
+\end{verbatim}
+\end{exemple}
+% options à inputenc : latin1, cp437, cp850, applemac notamment
+
+En fonction de votre système, il se peut qu'il soit configuré pour
+écrire des documents dans l'encodage unicode (utf8). Pour ce qui
+concerne emacs, lorsque vous créez un fichier pour la première fois,
+vous pouvez voir quel encodage il choisit en regardant en bas à gauche
+de la barre de statut. Si vous observez \verb?-1:?, emacs encode votre
+texte en iso-8859-1 (latin1 pour \LaTeX). Si vous observez \verb?-u:?,
+emacs l'encode par défaut en unicode (utf8). Vous devrez alors
+remplacer l'appel à inputenc produit précédemment par :
+\begin{exemple}[H] %\footnotesize
+  %\footnotesize
+  \caption{Usage des caractères accentués avec \LaTeX (encodage
+    unicode).}
+\begin{verbatim}
+\usepackage[utf8]{inputenc}
+\end{verbatim}
+\end{exemple}
+
+D'autres encodages pourraient être utilisés par votre système. Référez
+vous à sa documentation.
+
+
+\section{L'instruction \emph{usepackage}}
+
+\vfill
+\begin{itemize}
+\item On distingue dans un document \LaTeX, d'une part le corps du
+  document (corresondant à tout ce qui est situé entre les deux
+  extrémités de l'environnement \emph{document};
+\item d'autre part l'en-tête du document (entre \verb1\documentclass1
+  et \verb1\begin{document}1);
+  \item Toutes les instructions \verb1\usepackage{}1 doivent être
+    utilisée dans l'en-tête du document uniquement, jamais dans le
+    corps du document;
+\end{itemize}
+\vfill
+
+\section{Liste des accents possibles}
+
+
+\begin{tabbing}
+\verb1\`{o}1 \hspace{1cm}\=\a`{o} \hspace{1cm}\=\\
+\verb1\'{o}1 \>\a'{o} \\
+\verb1\^{o}1 \>\^{o} \\
+\verb1\"{o}1 \>\"{o} \\
+\verb1\H{o}1 \>\H{o} \> $\rightarrow$ \og Accent Hongrois \fg \\
+\verb1\~{o}1 \>\~{o} \\
+\verb1\c{c}1 \>\c{c} \\
+\verb1\={o}1 \>\a={o} \\
+\verb1\b{o}1 \>\b{o} \\
+\verb1\.{o}1 \>\.{o} \\
+\verb1\d{o}1 \>\d{o} \\
+\verb1\u{o}1 \>\u{o} \\
+\verb1\v{o}1 \>\v{o} \\
+\verb1\t{oo}1 \>\t{oo} \> $\rightarrow$ de l'anglais \emph{tie}, \og lien \fg 
+\end{tabbing}
+       
+
+\begin{itemize}
+\item Notez que les accolades autour de la lettre à accentuer ne sont
+  obligatoires que lorsque le type d'accent est indiqué par une lettre
+  (H, c, b, d, u, v, t). Ainsi, comme indiqué page précédente, il est
+  suffisant d'entrer \verb1\'o1 pour obtenir \'o.
+\item Si l'on souhaite introduire un accent sur une lettre déjà dotée
+  d'un point (i ou j), il existe une méthode qui permet de supprimer
+  ce point : \verb1\i1 ou \verb1\j1 donnent respectivement \i\ et \j.
+\item Ainsi, pour écrire un i avec un tilde, il suffit d'entrer
+  \verb1\~\i1 et on obtient \~\i. Sinon, on obtient \~i.
+\item Par contre, si vous utilisez l'extension \og inputenc \fg, vous
+  pouvez entrer directement un \emph{î} ou un \emph{ï}. Le point sur
+  le i n'apparaîtra pas. Ceci est particulièrement utile pour le
+  français.
+\item Vous pouvez mélanger les deux méthodes sans aucun problème.
+\end{itemize}
+
+\newpage
+\vfill
+\begin{description}
+\item[Exercice :] Entraînez-vous à écrire des lettres avec des accents
+  en utilisant les deux méthodes ;
+  \begin{itemize}
+  \item La méthode \og inputenc \fg\ pour ceux qui sont disponibles
+    sur votre clavier ;
+  \item Le méthode avec \emph{déclaration préalable} de l'accent pour
+    ceux qui ne sont pas disponibles au clavier. Essayez notamment les
+    accents sur les majuscules et sur les lettres qui correspondent à
+    des consonnes.
+  \end{itemize}
+\end{description}
+\vfill
+
+
+
+
+
+\section{Traitement des espaces}
+
+\subsection{\LaTeX{} et les espaces}
+
+Dans un fichier \LaTeX{}, une série d'espaces est interprétée comme un
+seul espace. Par conséquent, vous pouvez taper deux, trois, mille
+espaces à la suite, ça ne changera pas l'espacement entre les mots.
+\begin{example}
+Saisir un ou           10 
+espaces entre les mots n'a 
+aucune importance.
+\end{example}
+
+
+\subsection{Sauts de lignes}
+
+Pour \LaTeX, un saut de ligne ne signifie pas grand chose. Vous pouvez
+ainsi écrire :
+
+\begin{footnotesize}
+\begin{verbatim}
+Je peux écrire mes phrases sans faire
+attention
+aux
+sauts de
+lignes entre les mots et j'obtiens quand même une mise en page parfaite.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+\end{verbatim}
+\end{footnotesize}
+
+Ce qui donne :
+
+\begin{boxedminipage}{.5\textwidth}
+Je peux écrire mes phrases sans faire
+attention
+aux
+sauts de
+lignes entre les mots et j'obtiens quand même une mise en page parfaite.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+etc. etc. etc.
+\end{boxedminipage}
+
+
+\subsection{Changements de paragraphe}
+
+Par contre, pour changer de paragraphe, il faut introduire une ligne
+vide.
+
+\begin{footnotesize}
+\begin{verbatim}
+Ceci est un premier paragraphe qui
+contient un nombre de mots suffisant pour obtenir un paragraphe de plusieurs
+lignes et il faut sauter une
+ligne pour changer de paragraphe.
+
+Voici mon 
+second paragraphe. Et j'ajoute quelques mots pour obtenir plusieurs
+lignes.
+\end{verbatim}
+\end{footnotesize}
+
+Ce qui donne :
+
+\begin{boxedminipage}{.5\textwidth}
+Ceci est un premier paragraphe qui
+contient un nombre de mots suffisant pour obtenir un paragraphe de plusieurs
+lignes et il faut sauter une
+ligne pour changer de paragraphe.
+
+Voici mon 
+second paragraphe. Et j'ajoute quelques mots pour obtenir plusieurs
+lignes.
+\end{boxedminipage}
+
+Pour reformater vos paragraphes afin qu'ils soient plus lisibles dans
+emacs, taper ALT+Q lorsque le curseur est placé sur l'une des lignes
+du paragraphe à reformater.
+
+
+\section{Caractères réservés}
+
+Les caractères suivants ne peuvent pas être entrés tels quels au
+clavier car ils ont une signification particulière pour le formateur
+\LaTeX :
+
+\begin{flushleft}
+\begin{tabbing}
+\#\hspace{1cm}\=
+\&\hspace{1cm}\=
+\%\hspace{1cm}\=
+\$\hspace{1cm}\=
+\{\hspace{1cm}\=
+\}\hspace{1cm}\=
+\_\hspace{1cm}\=
+\~{} \hspace{1cm}\=
+\^{}\hspace{1cm}\=
+\textbackslash
+\end{tabbing}
+\end{flushleft}
+
+Pour obtenir ces caractères dans le fichier mis en page, il faut pour la plupart
+d'entre eux les faire précéder d'une barre oblique inversée (backslash, ou
+caractère d'échappement) :
+
+\begin{flushleft}
+\begin{tabbing}
+\#\hspace{1cm}\=
+\&\hspace{1cm}\=
+\%\hspace{1cm}\=
+\$\hspace{1cm}\=
+\{\hspace{1cm}\=
+\}\hspace{1cm}\=
+\_\hspace{1cm}
+\\
+\verb1\#1\>
+\verb1\&1\>
+\verb1\%1\>
+\verb1\$1\>
+\verb1\{1\>
+\verb1\}1\>
+\verb1\_1
+\end{tabbing}
+\end{flushleft}
+
+Les trois derniers sont un peut plus compliqués :
+\begin{itemize}
+\item \~{} doit être entré \verb1\~{}1 (car \verb1\~1 sans les accolades
+  mettrait un tilde sur la lettre suivante). Ceci revient à mettre un tilde au
+  dessus de \emph{rien}.;
+\item \^{} doit être entré \verb1\^{}1 (pour la même raison) ;
+\item \textbackslash doit être entré \verb1\textbackslash1 car pour \LaTeX, la
+  séquence \verb1\\1 indique une coupure de ligne (un saut de ligne).
+\end{itemize}
+
+
+
+\section{Les composants d'un document \LaTeX}
+
+\begin{itemize}
+\item Il existe deux grandes catégories de composants auxquels fait
+  appel un document \LaTeX.
+  \begin{itemize}
+  \item La \emph{classe de document} : c'est un composant obligatoire
+    du document. Il va apporter à \LaTeX\ toutes les informations dont
+    il a besoin pour assurer la mise en forme du texte. Il fournit
+    également un certain nombre de déclarations qui ne sont pas
+    nécessairement disponibles dans l'interpréteur \LaTeX.
+  \item Les \emph{extensions} : ce sont des composants optionnels
+    auxquels fait appel le document pour sa mise en forme mais aussi
+    pour faciliter la rédaction (cf. l'extension \og inputenc \fg).
+  \end{itemize}
+\item Pour le moment, nous allons nous contenter de travailler avec le
+  c\oe{}ur de \LaTeX. Nous n'utiliserons donc aucune extension à
+  l'exception d'\og inputenc \fg\ et de \og babel \fg mais d'autres
+  extensions viendront plus tard.
+\end{itemize}
+
+
+
+
+
+\section{Classes de documents}
+
+\begin{itemize}
+\item Tout fichier \LaTeX\ commence par une indication sur le type (la
+  classe) de document rédigé (article, livre, lettre\ldots). C'est le
+  rôle de la déclaration \verb1\documentclass1.
+\item Chaque classe de document apporte :
+  \begin{itemize}
+  \item Une mise en page particulière;
+  \item Des fonctionnalités spécifiques.
+  \end{itemize}
+\item Chaque classe de document accepte également un certain nombre
+  d'options qui permettent d'influencer la mise en page.
+\item Il est à noter que, par défaut, l'utilisateur n'a pas à se
+  préoccuper de la mise en page de son document. \LaTeX\ procèdera
+  automatiquement à une mise en forme de qualité (positionnement des
+  parties du texte, choix des tailles et des types de polices\ldots)
+  sans aucune intervention de la part de l'utilisateur qui n'a à se
+  soucier que du contenu.
+
+  La déclaration de la classe de document est de la forme :
+
+  \begin{center}
+    \verb1\documentclass[liste des options]{classe du document}1
+  \end{center}
+
+\end{itemize}
+
+Les différentes options sont séparées par des virgules.
+
+\section{La classe de document \og article \fg}
+
+%% %\footnotesize
+\begin{flushright}
+{\Large \verb1\documentclass{article}1}
+\end{flushright}
+
+\begin{itemize}
+\item Elle accepte entre autres les options suivantes :
+  \begin{itemize}
+  \item a4paper | letterpaper \hfill (format du papier)
+  \item portrait | landscape \hfill (orientation)
+  \item 12pt | 11pt | 10pt \hfill (taille de la police par défaut)
+  \item oneside | twoside \hfill (impression recto-verso ou pas)
+  \item final | draft \hfill (inclure les graphiques ou pas)
+  \item notitlepage | titlepage \hfill (la page de titre doit-elle
+    être séparée du reste du texte)
+  \item onecolumn | twocolumn \hfill (nombre de colonnes de texte pour
+    le formatage)
+%  \item leqno, fleqn, openbib
+  \end{itemize}
+\item Si vous utilisez plusieurs options simultanément, il faut les
+  séparer par une virgule.
+\item Par exemple, pour imprimer un article sur deux colonnes en recto
+  simple avec une police par défaut de 11pt sur du papier A4 sans
+  inclure les graphiques, il faut indiquer :
+
+  \verb=\documentclass[a4paper, 11pt,draft, oneside]{article}=
+  
+\item Notez qu'un certain nombre de ces options sont activées par
+  défaut. Sur la plupart des installations, appeler
+  \verb=\documentclass{article}= sans options revient à appeler :
+
+  \verb=\documentclass[letterpaper,10pt,oneside,final,onecolumn]{article}=
+
+  ou
+
+  \verb=\documentclass[a4paper,10pt,oneside,final,onecolumn]{article}=
+
+\end{itemize}
+
+%% \verb=\documentclass[a4paper|letterpaper,portrait|landscape,12pt|10pt|11pt,oneside|twoside=
+%% \verb=                        ,final|draft,notitlepage|titlepage,onecolumn|twocolumn=
+%% \verb=                        ,leqno,fleqn,openbib]{article}=
+
+%\newpage
+
+\begin{itemize}
+\item La classe \og article \fg\ permet d'utiliser 5 niveaux de
+  section :
+  \begin{itemize}
+  \item \verb1\part1
+  \item \verb1\section1
+  \item \verb1\subsection1
+  \item \verb1\subsubsection1
+  \item \verb1\paragraph1
+  \item \verb1\subparagraph1
+  \end{itemize}
+\item Elle fournit notamment 3 déclarations importantes qui doivent
+  être positionnées \emph{avant} l'instruction \verb1\begin{document}1
+    :
+  \begin{itemize}
+  \item \verb1\title1 \hfill (le titre de l'article : \verb1\title{mon titre}1)
+  \item \verb1\author1 \hfill (le nom du (ou des) auteur(s) : \verb1\author{auteur-A \& auteur-B}1)
+  \item \verb1\date1 \hfill (la date : essayez \verb1\date{\today}1 ou \verb1\date{}1)
+  \end{itemize}
+\item \verb1\maketitle1 inséré après \verb1\begin{document}1 met en page la page
+    de titre.
+\end{itemize}
+
+
+\section{Autres classes de documents}
+
+\begin{flushright}
+  {\Large \verb1\documentclass{book}1} (pour des livres, thèses)\\
+  {\Large \verb1\documentclass{report}1} (pour des livres, mémoires, thèses, rapports)\\
+  {\Large \verb1\documentclass{letter}1} (pour des lettres)\\
+  {\Large \verb1\documentclass{lettre}1} (pour des lettres aussi mais les possibilités sont plus étendues)\\
+  {\Large \verb1\documentclass{a0poster}1} (pour des posters)\\
+  {\Large \verb1\documentclass{prosper}1} (pour des présentations multimédia)\\
+  {\Large \verb1\documentclass{beamer}1} (pour des présentations multimédia aussi)\\
+  {\Large \verb1\documentclass{article}1}\\
+  \ldots
+\end{flushright}
+
+
+
+\section{Les classes \emph{book} et \emph{report}}
+
+Ces deux classes de documents (entre autres) vous donnent notamment
+accès à un niveau supplémentaires de sectionnement :
+
+\begin{itemize}
+\item \verb1\chapter1
+\end{itemize}
+
+qui viennent s'ajouter à ceux que nous avons vus :
+
+\begin{itemize}
+\item \verb1\part1
+\item \verb1\chapter1
+\item \verb1\section1
+\item \verb1\subsection1
+\item \verb1\subsubsection1
+\item \verb1\paragraph1
+\item \verb1\subparagraph1
+\end{itemize}
+
+
+\section{Mise en pratique}
+
+\vfill
+\begin{description}
+\item[Exercice :] Entraînez-vous à rédiger un document un peu plus
+  long que ce que nous avons écrit jusqu'ici (1 à 2 pages) en
+  structurant votre texte. Vous pouvez par exemple imaginer le plan
+  d'un article scientifique ou journalistique, un récit de voyage, la
+  description de l'histoire d'un roman ou d'un film\ldots
+\end{description}
+\begin{itemize}
+\item Une fois votre plan rédigé sur papier (juste les titres),
+  tapez-le dans Emacs en utilisant le marquage \LaTeX\
+  (\verb1\section, \subsection,1\ldots).
+  \begin{itemize}
+  \item Profitez-en pour jouer avec les accents, les caractères
+    réservés, les espaces entre les mots, le reformatage des
+    paragraphes dans emacs\ldots
+  \item Rédigez un texte qui fasse une à deux pages a4 après
+    compilation (ce texte peut parfaitement n'avoir aucun sens) en
+    introduisant un ou plusieurs paragraphes par section.
+  \item Prenez votre temps pour vous habituer à l'interface d'Emacs et
+    reprendre les points que nous avons vus ensemble à la séance
+    précédente (raccourcis clavier notamment).
+  \end{itemize}
+\end{itemize}
+\vfill

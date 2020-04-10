@@ -1,0 +1,16 @@
+\section{Installation d'une extension sous windows}
+
+\vfill
+\begin{itemize}
+\item Aller sur CTAN (http://www.ctan.org) ou l'un de ses mirroirs.
+\item Télécharger l'archive correspondant à l'extension
+\item Extraire l'archive dans c:$\backslash$Program
+  Files$\backslash$TeXLive$\backslash$texmf-local$\backslash$
+\item Démarrer -> Prgrammes -> Accessoires -> Invite de commande
+\item cd C:$\backslash$Program Files$\backslash$TeXLive$\backslash$texmf-local$\backslash$extension$\backslash$
+\item latex extension.ins
+\item latex extension.dtx
+\item Démarrer -> Programmes -> TeXLive -> Maintenance -> Rebuild ls-R filenames databases
+\item Utiliser l'extension.
+\end{itemize}
+\vfill

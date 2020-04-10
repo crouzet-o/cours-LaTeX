@@ -1,0 +1,187 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  LaTeX et le français
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{\LaTeX\ et les spécificités typographiques}
+
+\begin{itemize}
+\item Dans chaque pays, il existe un ensemble de règles typographiques qui ont
+  pour objet de réglementer la mise en page des documents écrits.
+\item Ces règles sont plus ou moins générales :
+  \begin{itemize}
+  \item Certaines s'appliquent à tous les supports écrits (le traitement des
+    espaces, l'interligne de début de paragraphe, l'indentation de début de
+    paragraphe, la césure\ldots).
+  \item D'autres sont spécifiques à un type de document (c'est notamment le cas
+    des lettres dont la mise en page relève de règles bien particulières en
+    fonction des pays).
+  \end{itemize}
+\end{itemize}
+
+
+\section{Les espaces et le français}
+
+\begin{itemize}
+\item Tout le monde connaît les variations typographiques de base qui sont
+  respectivement en usage dans les pays anglophones et francophones.
+  \begin{itemize}
+  \item Langue anglaise : pas d'espace avant les caractères de ponctuation.
+  \item Langue française : espace\footnote{En réalité, les règles
+      typographiques françaises imposent un espace d'une taille
+      différente de l'espace entre deux mots.} avant les caractères
+    \emph{doubles} (\emph{:},\emph{;},\emph{!},\emph{?}) mais pas
+    devant les caractères simples.
+  \end{itemize}
+\item Il est très facile avec \LaTeX\ de gérer ces règles typographiques de
+  manière transparente pour l'utilisateur. Sans aller trop loin dans l'étude de
+  l'extension \LaTeX\ qui permet de gérer ce problème, nous allons commencer à
+  l'utiliser dès maintenant. Ce qui nous permettra d'apprécier la qualité de la
+  mise en page quelle que soit la langue utilisée.
+\end{itemize}
+
+%\newpage 
+
+Nous allons donc introduire dans l'en-tête du document (avant
+\verb1\begin{document}1) l'appel :
+  
+\begin{flushright}
+  \verb1\usepackage[french]{babel}1.
+\end{flushright}
+  
+\begin{exemple}[H]
+  \caption{Usage des règles typographiques du français avec \LaTeX}
+\begin{verbatim}
+\documentclass[a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{xspace}
+\usepackage[english,french]{babel}
+
+\begin{document}
+...
+\end{document}
+\end{verbatim}
+\end{exemple}
+
+
+Cette extension va notamment avoir pour fonction :
+
+\begin{itemize}
+\item D'insérer un espace insécable \emph{avant} les signes de
+  ponctuation qui le nécessitent (que vous mettiez vous-même un espace
+  ou pas, \emph{babel} se chargera de faire ce qu'il faut pour que la
+  taille de l'espace soit toujours la même).
+\item D'empêcher les sauts de lignes avant ces espaces (plus de caractères de
+  ponctuation en début de ligne) sans que vous ayez quoi que ce soit à faire.
+\item De couper (en anglais \emph{hyphenation}, \emph{césure}) les
+  mots français où il le faut pour que la mise en page soit agréable.
+\item De franciser votre document (la date sera écrite en français notamment).
+\item \ldots (nous étudierons l'extension \emph{babel} plus en détails
+  par la suite).
+\end{itemize}
+
+
+
+\section{Francisation automatique du texte}
+
+\begin{itemize}
+\item En appelant l'extension \emph{Babel}, les mots qui sont insérés
+  automatiquement par \LaTeX\ seront automatiquement francisés :
+  \begin{itemize}
+  \item bibliography vs. bibliographie
+  \item chapter vs. chapitre
+  \item Abstract vs. Résumé
+  \item Appendix vs. Annexe
+  \item Table of contents vs. Table des matières
+  \item List of figures vs. Liste des figures
+  \item francisation de la date
+  \item francisation des titres de figures / tableaux
+  \item \ldots
+  \end{itemize}
+\end{itemize}
+
+
+
+\section{Autres paramètres modifiés par l'appel à Babel}
+
+\begin{itemize}
+\item modification des \og bullets \fg devant les listes
+\item réglage de l'espacement entre les éléments d'une liste
+\item permet d'utiliser les instructions \verb1\og1 et \verb1\fg1 respectivement
+  pour \og Ouvrir les Guillemets français \fg (og) et \og Fermer les Guillemets
+  français \fg (fg).% (ou \verb1<<1 et \verb1>>1).
+\item On peut obtenir les guillemets \emph{anglais} avec \verb1``1 et \verb1''1,
+  ce qui donne `` et ''. Si vous utilisez Emacs, il convertit automatiquement
+  \verb1"1 en guillemets anglais ouvrants ou fermants en fonction de leur
+  position par rapport au mot : Si vous tapez \verb1"1 après un espace, il les
+  convertit en guillemets ouvrants\ldots sinon en guillemets fermants.
+\end{itemize}
+
+
+\section{Basculer d'une langue à l'autre}
+
+\begin{exemple}[H]
+  \caption{Usage des règles typographiques du français avec \LaTeX}
+\begin{verbatim}
+\documentclass[a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{xspace}
+\usepackage[english,french]{babel}
+
+\begin{document}
+...
+\selectlanguage{english}
+...
+\selectlanguage{french}
+...
+\selectlanguage{english}
+...
+\end{document}
+\end{verbatim}
+\end{exemple}
+
+On utilise aussi l'extension \emph{xspace} qui améliore la gestion des
+espaces (par exemple dans le cas des guillemets).
+
+Par défaut, la langue par défaut du document est la dernière langue
+déclarée dans l'appel à usepackage.
+
+
+\section{Rédiger des documents dans d'autres langues}
+\label{sec:babel}
+
+Ceci n'est qu'un petit aperçu des possibilités de Babel. Vous pouvez
+également rédiger des documents dans bien d'autres langues en
+utilisant babel (allemand, espagnol, grec, breton, basque, hébreu,
+Hongrois, Russe, Turc\ldots). Pour celà, n'hésitez pas à lire la
+documentation de Babel:
+
+\bibentry{babeldoc}.
+
+Comme vous pourrez le remarquer, Babel fonctionne surtout pour des
+langues qui s'écrivent de gauche à droite. Pour l'arabe (ainsi que
+l'hébreu), on utilise en général l'extension \verb1arabtex1. Pour les
+langues comme le chinois, le coréen, le japonais, on utilise
+l'extension \verb1CJK1.
+
+N'hésitez pas à chercher sur internet s'il existe une extension qui
+soit adaptée à votre langue maternelle ou autre (il existe par exemple
+des extensions pour écrire avec les systèmes d'écriture
+hiéroglyphique, copte, éthiopien\ldots) et à m'en faire part
+(\url{mailto:olivier.crouzet@univ-nantes.fr}) si vous trouvez quelque
+chose d'intéressant.
+
+Vous pouvez par exemple consulter la page internet suivante :
+
+\url{http://tug.ctan.org/tex-archive/language/}
+
+
+
+
+
+

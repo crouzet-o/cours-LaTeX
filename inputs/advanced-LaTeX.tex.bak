@@ -1,0 +1,339 @@
+
+
+
+\section{Principaux environnements}
+
+\begin{itemize}
+\item \emph{abstract}
+
+  \verb1\begin{abstract} ... \end{abstract}1
+  
+  Précédé éventuellement de \verb1\selectlanguage{francais|english|...}1 pour
+  sélectionner la langue. On peut insérer plusieurs environnements
+  \emph{abstract} utilisant une langue différente.
+
+\item justification du texte (par défaut, le texte standard est \og
+  justifié \fg)
+
+  \begin{itemize}
+  \item \emph{center} (comme son nom l'indique, permet de centrer les
+    objets (texte, graphiques, tableaux\ldots). Il existe une
+    \emph{déclaration} équivalente --tous les environnements ne
+    corrspondent pas nécessairement à une déclaration-- :
+    \verb1\centering1)
+
+    \verb1\begin{center} ... \end{center}1
+
+  \item \emph{flushright} (alignement à droite, déclaration
+    équivalente : \verb1\raggedleft1 -- attention \emph{ragged} doit
+    être compris comme : \og je pousse le texte depuis ce côté-là \fg,
+    ce qui explique que l'environnement \emph{flushright} corresponde
+    à la déclaration \emph{raggedleft}).
+  \item \emph{flushleft} (alignement à gauche, déclaration équivalente
+    : \verb1\raggedright1).
+  \end{itemize}
+
+\item citations
+  \begin{itemize}
+  \item \emph{quote} (citation d'un seul paragraphe)
+    \begin{exemple}[H]
+      \caption{Citation avec l'environnement \emph{quote}}
+\begin{verbatim}
+\begin{quote}
+  Ceci est un exemple de rédaction avec LaTeX. Vous pouvez bien
+  évidemment le reproduire pour vous entraîner. Si vous rencontrez des
+  difficultés (messages d'erreur par exemple), essayez de localiser la
+  source de l'erreur en regardant les messages fournis par LaTeX et de
+  corriger ensuite l'erreur.
+\end{quote}
+\end{verbatim}
+    \end{exemple}
+  \item \emph{quotation} (citation de plusieurs paragraphes)
+    \begin{exemple}[H]
+      \caption{Citation avec l'environnement \emph{quotation}}
+\begin{verbatim}
+\begin{quotation}
+  Ceci est un exemple de rédaction avec LaTeX. Vous pouvez bien
+  évidemment le reproduire pour vous entraîner. Si vous rencontrez des
+  difficultés (messages d'erreur par exemple), essayez de localiser la
+  source de l'erreur en regardant les messages fournis par LaTeX et de
+  corriger ensuite l'erreur.
+
+  Ceci est un exemple de rédaction avec LaTeX. Vous pouvez bien
+  évidemment le reproduire pour vous entraîner. Si vous rencontrez des
+  difficultés (messages d'erreur par exemple), essayez de localiser la
+  source de l'erreur en regardant les messages fournis par LaTeX et de
+  corriger ensuite l'erreur.
+\end{quotation}
+\end{verbatim}
+    \end{exemple}
+  \item \emph{verse} (pour transcrire des poèmes; chaque vers se
+    termine par \verb1\\1 afin de passer au vers suivant)
+    \begin{exemple}[H]
+      \caption{Citation avec l'environnement \emph{verse}}
+\begin{verbatim}
+\begin{verse}
+  Ceci est un exemple de rédaction avec LaTeX.\\
+  Vous pouvez bien évidemment le reproduire pour vous entraîner.\\
+
+  Si vous rencontrez des difficultés\\
+  (messages d'erreur par exemple),\\
+  essayez de localiser la source de l'erreur\\
+  en regardant les messages fournis par LaTeX\\
+  et de corriger ensuite l'erreur.
+\end{verse}
+\end{verbatim}
+    \end{exemple}
+  \end{itemize}
+
+\item listes (\verb1\item1 au début de chaque élément)
+  \begin{itemize}
+  \item \emph{itemize} (liste non-numérotée)
+    \begin{exemple}[H]
+      \caption{Liste non-numérotée avec l'environnement \emph{itemize}}
+\begin{verbatim}
+\begin{itemize}
+  \item Ceci est un exemple de rédaction avec LaTeX.
+  \item Vous pouvez bien évidemment le reproduire pour vous entraîner.
+  \item Si vous rencontrez des difficultés (messages d'erreur par
+    exemple), essayez de localiser la source de l'erreur en regardant
+    les messages fournis par LaTeX et de corriger ensuite l'erreur.
+\end{itemize}
+\end{verbatim}
+    \end{exemple}
+  \item \emph{enumerate} (liste numérotée)
+    \begin{exemple}[H]
+      \caption{Liste numérotée avec l'environnement \emph{enumerate}}
+\begin{verbatim}
+\begin{enumerate}
+  \item Ceci est un exemple de rédaction avec LaTeX.
+  \item Vous pouvez bien évidemment le reproduire pour vous entraîner.
+  \item Si vous rencontrez des difficultés (messages d'erreur par
+    exemple), essayez de localiser la source de l'erreur en regardant
+    les messages fournis par LaTeX et de corriger ensuite l'erreur.
+\end{enumerate}
+\end{verbatim}
+    \end{exemple}
+  \item \emph{description} (définitions + terme à définir entre crochets)
+
+    \verb1\item[terme à définir] Définition du terme.1
+
+    \begin{exemple}[H]
+      \caption{Liste de termes avec l'environnement \emph{description}}
+\begin{verbatim}
+\begin{description}
+  \item[1er terme] Ceci est un exemple de rédaction avec LaTeX.
+  \item[terme suivant] Vous pouvez bien évidemment le reproduire pour
+    vous entraîner.
+  \item[dernier terme] Si vous rencontrez des difficultés (messages
+    d'erreur par exemple), essayez de localiser la source de l'erreur
+    en regardant les messages fournis par LaTeX et de corriger ensuite
+    l'erreur.
+\end{description}
+\end{verbatim}
+    \end{exemple}
+  \end{itemize}
+\end{itemize}
+
+
+\section{Quelques déclarations courantes}
+
+
+\begin{itemize}
+\item Changement de type de police :
+  \begin{itemize}
+  \item \verb1\rmfamily1 : Roman (= Serif, cf. Times)
+  \item \verb1\sffamily1 : Sans Serif (cf. Helvetica)
+  \item \verb1\ttfamily1 : Typewriter (cf. Courier) \emph{Particulièrement utile
+      pour les colonnes de chiffres}
+  \end{itemize}
+\item Changement d'orientation des caractères :
+  \begin{itemize}
+  \item \verb1\slshape1 : Slanted (italique)
+  \item \verb1\upshape1 : Droit (par défaut)
+  \item \verb1\scshape1 : Small Caps (petites capitales)
+  \end{itemize}
+\item Graisse :
+  \begin{itemize}
+  \item \verb1\bfseries1 : Gras
+  \end{itemize}
+\item Alignement horizontal :
+  \begin{itemize}
+  \item \verb1\centering1 : Centré
+  \item \verb1\raggedleft1 : Repoussé depuis la gauche (Aligné à droite)
+  \item \verb1\raggedright1 : Repoussé depuis la droite (Aligné à gauche)
+  \end{itemize}
+\item Taille de caractères :
+  \begin{itemize}
+  \item \verb1\tiny1 : du plus petit
+  \item \verb1\scriptsize1 : \ldots
+  \item \verb1\footnotesize1 : \ldots
+  \item \verb1\small1 : \ldots
+  \item \verb1\normalsize1 : \ldots
+  \item \verb1\large1 : \ldots
+  \item \verb1\Large1 : \ldots
+  \item \verb1\LARGE1 : \ldots
+  \item \verb1\huge1 : \ldots
+  \item \verb1\Huge1 : au plus grand
+  \end{itemize}
+\end{itemize}
+
+Attention, la plupart de ces déclarations n'ont pas pour fonction
+d'être utilisée dans le corps du document mais seulement lorsque l'on
+commence à configurer l'en-tête du document avec des outils
+spécifiques. Par exemple, on pourrait souhaiter que tous les titres de
+section apparaissent en police Sans-Serif, Gras, gros caractères
+droits. \emph{\'Evidemment}, vous n'utiliserez pas ces déclarations
+pour chaque instruction \verb1\section{}1\ldots nous verrons, à la fin
+du cours, comment on gère ça avec \LaTeX.
+
+\section{Les annexes}
+
+\begin{itemize}
+\item Tout ce qui suit la déclaration \verb1\appendix1 est considéré comme
+  faisant partie des annexes.
+\item Après cette déclaration, les éléments de titre (\verb1\section{}1,
+  \verb1\subsection{}1\ldots) seront numérotés différemment (en standard avec
+  des lettres), ainsi que les numéros de pages (en standard avec des chiffres
+  romains;
+\item Le comportement de cette instruction dépend beaucoup de la
+  classe de document utilisée (la classe article \emph{article}
+  donnera un résultat différent de ce qu'on obtiendrait avec la classe
+  \emph{book} ou \emph{report}).
+\end{itemize}
+
+\section{Table des matières}
+
+\begin{itemize}
+\item \verb1\tableofcontents1
+\item Insère une table des matières à l'endroit où cette instruction apparaît.
+\end{itemize}
+
+On peut éventuellement faire précéder l'appel à \verb1\tableofcontents1 des instructions suivantes :
+
+\begin{itemize}
+\item {\bfseries \verb=\setcounter{tocdepth}{2}=} : Profondeur
+  maxi pour intégration dans la TdM.
+\item {\bfseries \verb=\setcounter{secnumdepth}{1}=} : Profondeur maxi
+  pour affichage de la numérotation des pages dans la table des
+  matières.
+\end{itemize}
+
+\section{Listes des graphiques et des tableaux}
+
+
+\subsection{Liste des graphiques}
+
+\begin{itemize}
+\item \verb1\listoffigures1 (cf. p.\pageref{list:fig})
+\item Insère une liste des graphiques (et des numéros de pages
+  correspondants) à l'endroit où cette instruction apparaît.
+\item Inutile tant que nous n'avons pas vu comment insérer des graphiques.
+\end{itemize}
+
+
+\subsection{Liste des tableaux}
+
+\begin{itemize}
+\item \verb1\listoftables1 (cf. p.\pageref{list:tab})
+\item Insère une liste des tableaux (et des numéros de pages
+  correspondants) à l'endroit où cette instruction apparaît.
+\item Inutile tant que nous n'avons pas vu comment insérer des tableaux.
+\end{itemize}
+
+
+
+\section{Les renvois}
+
+\begin{itemize}
+\item \verb1\label{nom}1 : insère un repère dans le document et lui attribue un
+  nom (qui doit être unique parmi tous les labels attribués dans le document).
+  \begin{itemize}
+  \item En général, on fait précéder les labels des graphiques de
+    \emph{\selectlanguage{english}fig:} et ceux des tableaux de
+    \emph{\selectlanguage{english}tab:} (mais c'est juste une convention
+    d'usage), par exemple \verb1\label{fig:surface}1 pour un graphique
+    représentant une surface.
+  \end{itemize}
+\item \verb1\ref{nom}1 : effectue un renvoi vers le numéro [de la section, du
+  tableau, du graphique, \ldots] qui correspond au repère \emph{nom}.
+  \begin{itemize}
+  \item Pour les tableaux, les graphiques (flottants, sinon ils ne disposent pas
+    d'un numéro), il convient de situer l'appel \verb1\label{fig:surface}1 à
+    l'intérieur de l'environnement (figure ou table), la position exacte importe
+    peu.
+  \item Pour les sections, sous-sections\ldots on insère en général le label
+    juste après la section concernée.
+
+\begin{verbatim}
+\section{Un titre de section}
+\label{théorie_Z}
+\end{verbatim}
+
+  \end{itemize}
+\item \verb1\pageref{nom}1 : effectue un renvoi vers le numéro de la page qui
+  correspond au repère \emph{nom}. Pour le reste, il fonctionne exactement de la
+  même manière que \verb1\ref1.
+\end{itemize}
+                                % \label \ref \pageref
+
+Nous verrons ultérieurement que le mode Emacs \emph{refTeX}
+(Chapitre~\ref{cha:reftex}, p.\pageref{cha:reftex}) peut faciliter le
+travail de gestion des références.
+
+
+
+ \section{Création de documents PDF}
+
+ Il existe (au-moins) deux méthodes pour obtenir un document PDF à
+ partir d'un fichier source \LaTeX:
+
+ \begin{description}
+ \item[classique] \LaTeX\ $\Rightarrow$ DVI $\Rightarrow$ PS
+   $\Rightarrow$ PDF
+ %\item[dvipdfm] \LaTeX\ $\Rightarrow$ DVI $\Rightarrow$ PDF
+ \item[pdflatex] \LaTeX\ $\Rightarrow$ PDF
+ \end{description}
+
+ Nous utiliserons la dernière méthode. Elle permet d'insérer des
+ graphiques dans des formats assez fréquents sous Windows et Mac OS
+ (JPEG, PNG, mais aussi PDF).
+
+ La méthode classique peut être intéressante pour ceux qui utilisent
+ l'extension \emph{PSTricks} qui fournit des outils intéressants pour
+ la génération de graphes (mais on peut aussi utiliser
+ \emph{tikz}). Elle nécessite cependant l'usage de graphiques au
+ format \emph{EPS} (Embedded Postscript) (peu utilisés sous Windows,
+ en tout cas peu connus des utilisateurs\footnote{Postscript est le
+   format de prédilection utilisé sous Unix})
+
+
+ Dans emacs, vous pouvez sélectionner la création automatique directe
+ de fichiers PDF en sélectionnant dans le menu Command $\Rightarrow$
+ TeXing Options, la case \emph{PDF Mode}.
+
+ Pour indiquer à Emacs de toujours sélectionner cette option au
+ démarrage, le plus simple est d'ajouter, dans le fichier
+ \verb1.emacs1 situé dans votre répertoire personnel, la ligne :
+ \begin{quote}
+   \verb1(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)1
+ \end{quote}
+ et de redémarrer emacs.
+
+Il est aussi possible de configurer emacs depuis les menus :
+
+\begin{quote}
+  Options $\Rightarrow$ Customize Emacs $\Rightarrow$ Browse
+  Customisation Groups
+\end{quote}
+
+et aller ensuite dans :
+
+\begin{quote}
+  Emacs $\Rightarrow$ Wp $\Rightarrow$ Tex $\Rightarrow$ AUCTeX
+  $\Rightarrow$ Tex Pdf Mode
+\end{quote}
+
+Cliquer sur \og Toggle \fg pour faire passer cette option à ON (cette
+opération est inutile si vous passez par la modification du fichier
+\verb1.emacs1).

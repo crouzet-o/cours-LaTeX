@@ -1,0 +1,338 @@
+
+
+\section{Les tableaux}
+\label{tableaux}
+
+\vfill 
+
+Comme pour les graphiques, deux points indépendants sont à considérer :
+
+\begin{itemize}
+\item La création d'un tableau dans un document \LaTeX\ (cf.~\ref{tabular}).
+\item Le positionnement du tableau et de son titre dans le document (retour à la
+  notion de flottant, cf.~\ref{table}).
+\end{itemize}
+
+\vfill
+
+
+
+
+
+
+
+\input{inputs/tableaux-misc}
+
+
+
+
+
+
+\newcolumntype{t}{>{\slshape\raggedright}b{.20\textwidth}}
+\newcolumntype{s}{>{\sffamily}c}
+\newcolumntype{s}{>{\sffamily\centering}b{.20\textwidth}}
+
+
+\section{Positionnement et attribution d'un titre}
+\label{table}
+
+\begin{itemize}
+\item Les tableaux sont aussi des objets qui peuvent (et doivent dans
+  un texte universitaire, scientifique\ldots) flotter dans le
+  document, c'est à dire être placés au meilleur endroit possible et
+  être désignés dans le texte par leur numéro.
+\item Il faut donc les inclure dans un environnement qui les fera flotter et
+  permettra de leur attribuer un titre et, évidemment, une numérotation
+  automatique.
+\item On procèdera d'une manière similaire à celle que l'on a utilisée pour les
+  graphiques, seule la position du titre changera puisque -contrairement aux
+  graphiques- les titres de tableaux doivent apparaître au-dessus.
+\end{itemize}
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\begin{table}
+\caption{}
+\begin{center}
+  \begin{tabular}{tsddd} \toprule
+    & & Condition 1 & Condition 2 & Condition 3 \tabularnewline \midrule
+    Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \tabularnewline
+    & Taux d'erreur (en \%)  & 14 & 10 & 4 \tabularnewline \cmidrule{2-5}
+    Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+    & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \midrule
+  \end{tabular}
+\end{table}
+\end{verbatim}
+\end{boxedminipage}
+
+\section{Exemple de tableau flottant}
+
+\begin{table}[H]
+\caption{Un exemple de tableau flottant}
+\begin{center}
+  \begin{tabularx}{.9\textwidth}{Xsrrr} \toprule
+    & & Condition 1 & Condition 2 & Condition 3 \\ \midrule
+    Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \\
+    & Taux d'erreur (en \%)  & 14 & 10 & 4 \\ \cmidrule{2-5}
+    Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \\
+    & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \midrule
+  \end{tabularx}
+\end{center}
+\end{table}
+
+Notez la différence fondamentale entre les environnements
+\verb1tabular1 (création d'un tableau) et \verb1table1 (positionnement
+flottant du tableau --qui sera généré par l'environnement
+\verb1tabular1).
+
+
+\section{Faire référence à un tableau}
+
+\begin{itemize}
+\item \verb1\label{nom}1 : attribue un label au tableau.
+  \begin{itemize}
+  \item En général, on fait précéder les labels des tableaux de
+    \emph{\selectlanguage{english}tab:} (mais c'est juste une convention
+    d'usage), par exemple \verb1\label{tab:data}1.
+  \end{itemize}
+\item \verb1\ref{nom}1 : effectue un renvoi vers le numéro du tableau qui
+  correspond au repère \emph{nom}.
+\item Pour les tableaux flottants (Attention, s'ils ne flottent pas,
+  ils ne disposent pas d'un numéro ; on peut cepedendant renvoyer à la
+  page sur laquelle ils apparaissent), il convient de situer l'appel
+  \verb1\label{nom}1 à l'intérieur de l'environnement \emph{table} et
+  juste avant l'appel à l'environnement \verb1tabular1.
+
+  \begin{exemple}[H]
+    \caption{Référence à un tableau}
+    \label{ex:reftab}
+\begin{verbatim}
+\begin{table}
+  \caption{}
+  \label{théorie_Z}.
+  ...
+\end{table}
+\end{verbatim}
+    
+  \end{exemple}
+  
+\item \verb1\pageref{nom}1 : effectue un renvoi vers le numéro de la page qui
+  correspond au repère \emph{nom}. Pour le reste, il fonctionne exactement de la
+  même manière que \verb1\ref1.
+\end{itemize}
+
+
+\clearpage
+
+
+
+\section{Un tableau sur plusieurs pages : \emph{longtable}}
+\label{longtable}
+
+\vfill
+
+Ce que nous avons vu jusqu'ici ne nous permet pas de composer des tableaux qui
+s'étendent sur plusieurs pages (problème de gestion des sauts de page). Nous
+pouvons, pour cela utiliser l'extension \emph{longtable} (remarquez que nous
+utilisons ici les fonctionnalités de \emph{booktabs} et \emph{array} en
+parallèle avec \emph{longtable}.
+
+Remarquez qu'un tableau de ce type ne peut pas flotter puisqu'il s'étale sur
+plusieurs pages. On n'a donc besoin que d'un seul environnement et on introduit
+le \verb1\caption{}1 directement dans le corps du tableau en n'oubliant pas
+d'insérer un saut de ligne.
+
+\vfill
+
+
+\section{Un exemple de l'usage de \emph{longtable}}
+
+\begin{boxedminipage}{\textwidth}
+\small
+\begin{verbatim}
+\usepackage{longtable}
+...
+\begin{document}
+...
+\newcolumntype{t}{>{\slshape\raggedright}b{.20\textwidth}}
+\newcolumntype{s}{>{\sffamily\centering}b{.20\textwidth}}
+\newcolumntype{d}{>{\ttfamily}r}
+
+\begin{longtable}{tsd}
+  \caption{Titre du tableau...} \tabularnewline  \toprule
+     Titre gauche & Titre centre & Titre droite \tabularnewline \midrule
+  \endfirsthead
+  \toprule
+     Continuation gauche & Continuation centre & Continuation droite \tabularnewline
+  \midrule
+  \endhead
+     left & centered & right \tabularnewline \midrule
+  ...
+  left & centered & right \tabularnewline
+  left & centered & right \tabularnewline \bottomrule
+\end{longtable}
+\end{verbatim}
+\end{boxedminipage}
+
+
+
+\newpage
+%   \begin{longtable}{lcr} \toprule
+   \begin{longtable}{tsd}
+     \caption[Un exemple de tableau utilisant \emph{longtable}]{Titre du tableau avec un texte décrivant le contenu du tableau, les informations présentées dans les colonnes, etc.} \tabularnewline  \toprule
+     Titre gauche & Titre centre & Titre droite \tabularnewline \midrule
+     \endfirsthead
+     \toprule
+     Continuation gauche & Continuation centre & Continuation droite \tabularnewline
+     \midrule
+     \endhead
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline
+     left & centered & right \tabularnewline \bottomrule
+   \end{longtable}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% On remarque que le problème lié à \emph{multirow} et à l'usage de cette
+%% extension avec des cellules contenant beaucoup de texte n'a toujours pas
+%% disparu.
+
+%% \section{Comment obliger \emph{multirow} à positionner ce texte correctement ?}
+
+%% Il faut utiliser l'option [décalage] que nous avons vue tout à l'heure.
+
+%% \begin{boxedminipage}{\textwidth}
+%% \begin{verbatim}
+%% \multirow{2}{.2\textwidth}[1.5ex]{Titre long} & Donnée & TEXTE \\ \cline{2-3}
+%% \end{verbatim}
+%% \end{boxedminipage}
+
+%% \begin{center}
+%% \begin{tabular}{|m{.2\textwidth}|cm{.3\textwidth}|} \hline
+%% \multirow{2}{*}{Titre commun} & Donnée & Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau. \\ \cline{2-3}
+%%                         & Donnée & Donnée \\ \hline
+%% \multirow{2}{.2\textwidth}[1.5ex]{Titre commun qui contient plus de texte que n'en pourrait contenir une seule cellule} & Donnée & Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau. \\ \cline{2-3}
+%%                         & Donnée & Donnée \\ \hline
+%% \end{tabular}
+%% \end{center}
+
+
+%%\section{A-t-on réellement besoin de \emph{multirow} ?}
+
+%% \section{Règles de composition d'un tableau de données}
+
+%% La construction d'un tableau répond à des règles strictes qu'il convient de
+%% suivre pour les publications de travaux de recherche.
+
+%% \begin{itemize}
+%% \item Un tableau ne doit jamais contenir de lignes verticales
+%% \item Les lignes horizontales doivent servir à séparer des éléments qui sont
+%%   extrêments différents les uns des autres.
+%% \item De fait, deux lignes correspondant à des données qui partagent un même
+%%   en-tête doivent obéir à une règle simple : elles ne sont séparées par aucune
+%%   ligne. Il est inutile --voire gênant-- de regrouper des cellules ; le simple
+%%   fait que leur en-tête soit unique permet d'identifier les lignes comme
+%%   relevant d'une même catégorie.
+%% \item Par ailleurs, dans la majorité des cas, l'auteur doit se demander s'il est
+%%   normal de construire un tableau avec des cellules contenant beaucoup de texte.
+%%   Un tableau a pour fonction de représenter des données numériques. De simples
+%%   en-têtes devraient alors suffire et les informations plus complètes devraient
+%%   être mentionnées soit dans le titre du tableau, soit dans le texte.
+%% \end{itemize}
+
+%% Il est ainsi tout à fait possible de concevoir un tableau sans avoir besoin
+%% d'utiliser cette extension \emph{multirow}.
+
+%% Avant de commencer à résoudre ce type de problème si vous le rencontrez, il faut
+%% toujours vous demander si ce que vous voulez obtenir est souhaitable d'un point
+%% de vue typographique ou scientifique. Vous gagnerez certainement beaucoup de
+%% temps et votre document gagnera en lisibilité.
+
+%% \begin{center}
+%% \begin{tabular}{m{.2\textwidth}cm{.3\textwidth}} \hline
+%% Titre commun & Donnée & Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau. \\
+%%                         & Donnée & Donnée \\ \hline
+%% Titre commun qui contient plus de texte que n'en pourrait contenir une seule cellule & Donnée & Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau. \\
+%%                         & Donnée & Donnée \\ \hline
+%% \end{tabular}
+%% \end{center}
+
+
+
+
+
+
+% \begin{center}
+%   \begin{minipage}{5cm}
+%     Après cette seconde séance, vous aurez acquis les fondements essentiels de
+%     la rédaction de documents avec \LaTeX. Il restera à appréhender toutes les
+%     finesses du système et à aborder l'ensemble des points qui peuvent
+%     intervenir dans la rédaction d'un document universitaire (graphiques,
+%     bibliographies, tableaux, index, etc.).
+%   \end{minipage}
+% \end{center}
+

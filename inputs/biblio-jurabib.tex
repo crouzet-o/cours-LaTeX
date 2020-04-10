@@ -1,0 +1,93 @@
+
+\section{Les objectifs de \emph{jurabib}}
+
+
+L'extension jurabib permet notamment de gérer des systèmes
+bibliographiques requérant une présentation des références
+bibliographiques en notes de bas de page, laquelle est assortie de
+termes particuliers lorsque la référence a déjà été citée (op. cit.,
+idem, ibidem\ldots).
+
+L'atout majeur de jurabib est qu'il vous permettra de respecter toutes
+ces règles \emph{sans avoir besoin de savoir (1) si vous avez déjà
+  cité une référence, (2) quel terme vous devez utiliser si la
+  référence a déjà été citée\ldots)}
+
+
+\section{En-tête du document}
+
+Pour utiliser \emph{jurabib} on charge l'extension et on définit un
+certain nombre de paramètres :
+
+
+\begin{small}
+\begin{verbatim}
+\usepackage{jurabib}
+\jurabibsetup{%
+  human=true,
+  authorformat={abbrv,and,year,smallcaps},
+  bibformat={ibidem},
+  commabeforerest,
+  ibidem=strict,
+  idem=strict,
+  opcit=true,
+  citefull=first,
+  biblikecite=true,
+  oxford=true,
+  titleformat={italic,commasep},
+  annote=off,
+}
+
+\renewcommand{\bibauthormultiple}{--------\hspace{1em}}
+\renewcommand{\cite}{\footcite}
+\renewcommand{\bibbtsep}{in }
+\renewcommand{\bibjtsep}{}
+\renewcommand{\bibansep}{,}
+\renewcommand{\bibatsep}{,}
+\renewcommand{\bibbdsep}{}
+\renewcommand{\bpubaddr}{~:}
+\renewcommand{\bibjtfont}{\textit}
+\end{verbatim}
+\end{small}
+
+
+
+\section{Appel des références bibliographiques}
+
+Le fonctionnement est ensuite proche de celui de \emph{natbib} pour
+les appels bibliographiques :
+
+
+\begin{verbatim}
+
+\cite{}
+\citeauthor{}
+\citeyear{}
+\cite[p.15]{}
+
+\end{verbatim}
+
+
+
+
+\section{Formatage de la bibliographie}
+
+Tout comme avec les autres systèmes, on indique le nom de la base
+bibliographique et le style bibliographique (utilisez \emph{jox} qui
+est fourni avec jurabib).
+
+Si vous ne souhaitez pas qu'une bibliographie finale soit insérée dans
+votre document, vous remplacerez \verb1\bibliography{}1 par
+\verb1\nobibliography{}1.
+
+
+\begin{verbatim}
+\bibliography{filename} (ou \nobibliography{filename})
+\bibliographystyle{jox}
+\end{verbatim}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/home/teaching/cours/sdl/M2/LaTeX/slides/recueil-initiation-LaTeX"
+%%% End: 

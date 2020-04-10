@@ -1,0 +1,150 @@
+
+\section{Premiers pas avec Emacs}
+\label{emacs}
+
+\vfill
+\begin{itemize}
+\item Jusqu'à maintenant, vous avez fait vos premiers pas avec
+  \LaTeX{} en utilisant un éditeur de texte quelconque (peut-être
+  emacs mais pas nécessairement). Certains éditeurs de texte sont un
+  peu \og spartiates \fg\ et on s'aperçoit vite qu'il est peu aisé
+  d'éditer un document \LaTeX{} avec un éditeur basique.
+\item Un certain nombre d'éditeurs ont été développés spécifiquement
+  pour éditer des documents \LaTeX.
+\item D'autres sont généralistes mais permettent des les configurer
+  spécifiquement pour faciliter l'édition de documents \LaTeX\ (ou de
+  tout autre langage). C'est le cas d'Emacs (mais aussi de VI et
+  VIM). Emacs permet d'utiliser le mode \emph{Auctex} pour éditer les
+  documents \TeX\ et \LaTeX.
+\item C'est celui que nous utiliserons. Emacs est un éditeur de texte
+  très complet (et libre) et va nous apporter un certain nombre
+  d'aides précieuses au cours de la rédaction de documents.
+  \begin{itemize}
+  \item Coloration du texte (c'est ce qu'on appelle en informatique de
+    la coloration syntaxique).
+  \item Barres de menu apportant une aide spécifique en fonction du
+    type de document sur lequel on travaille (\LaTeX, HTML, langages
+    de programmation, \ldots).
+  \end{itemize}
+\item Lancer Emacs.
+\item Ouvrir un nouveau\footnote{Notez qu'il n'y a pas de différence
+    entre \texttt{créer un nouveau fichier} et \texttt{ouvrir un
+      fichier existant} dans Emacs !} fichier (File $\Rightarrow$ Open
+  File --\texttt{doc2.tex}--).
+\item Taper \texttt{doc2.tex} dans le \emph{minibuffer}.
+\item Reproduire le contenu du document précédent. Vous pouvez faire
+  un copier coller mais c'est différent de sous windows !
+\end{itemize}
+
+\vfill
+
+\section{Manipulation d'Emacs}
+
+\vfill
+
+\begin{description}
+\item[buffer] En français, \og tampon \fg. Dans emacs, un buffer est
+  une zone du logiciel dans laquelle il affiche diverses informations
+  (contenu des fichiers sur lesquels on travaille,
+  messages\ldots). Emacs ne fait pas de différence entre les notions
+  de \emph{buffer} et de \emph{fichier};
+\item[minibuffer] Espace se trouvant en bas de la fenêtre emacs; il
+  affiche des informations ou nous demande d'y entrer des informations
+  : nous utiliserons assez souvent cette fonctionnalité.
+\end{description}
+\vfill
+
+\section{Quelques raccourcis clavier utiles}
+
+\begin{description}
+\item[C-x C-s] Enregistre un fichier\footnote{C = Control, A = Alt
+    (Meta dans le monde Emacs)}
+\item[C-x C-c] Quitte Emacs
+\item[C-k] Efface le texte jusqu'à la fin de la ligne courante (cut
+  sous windows, dans le monde Emacs parle de \emph{Killing}, d'où le
+  \emph{k}). Un second appui sur C-k supprime le saut de ligne. Le
+  texte est placé dans un tampon : il est gardé en mémoire.
+\item[C-w] Efface la sélection (et la stocke dans un tampon).
+\item[A-d] Efface le texte jusqu'à la fin du \emph{mot} courant.
+\item[C-y] Recopie le contenu de ce qui vient d'être effacé
+  (\emph{Yanking} d'où le \emph{y}, en anglais, \og Yank \fg = tirer
+  brutalement\footnote{On n'a pas repris les termes utilisés sous
+    Windows parce qu'Emacs existe depuis bien plus longtemps !!!}).
+\item[A-q] Reformate le paragraphe à environ 75 caractères par ligne.
+\item[C-x 2] Découpe la fenêtre en deux horizontalement
+\item[C-x 3] Découpe la fenêtre en deux verticalement
+\item[C-x 1] Maximise la fenêtre courante (annule les deux
+  précédents).
+\item[C-x b] Change de buffer
+\item[C-x C-b] Affiche la liste des buffers ouverts (cliquer avec le
+  bouton du milieu sur le buffer souhaité nous y amène directement).
+\end{description}
+
+
+
+\section{Le mode AUC\TeX}
+
+\begin{itemize}
+\item Chaque type de fichier utilise un \emph{mode} Emacs particulier
+  (mode \LaTeX, mode C, mode HTML\ldots);
+\item Le mode AUCTeX est un mode \LaTeX\ très utile car il va non
+  seulement améliorer la coloration syntaxique du document mais aussi
+  vous fournir des menus (\LaTeX\ et Command) qui vous faciliteront la
+  tâche lors de la rédaction.
+\end{itemize}
+
+
+
+\section{Utilisation du menu AUC\TeX}
+
+\begin{itemize}
+\item Le menu \emph{\LaTeX} vous permet de sélectionner les
+  environnements et les instructions dont vous pouvez avoir besoin;
+\item Le menu \emph{Command} vous sert à \emph{compiler} le document
+  et le visualiser.
+  \begin{description}
+  \item[LaTeX] Compile le document
+  \item[BibTeX] Compile la bibliographie (cf. Chapitre~\ref{cha:bibtex})
+  \item[View] Visualise le document avec le logiciel adapté
+  \end{description}
+\item Un certain nombre de raccourcis clavier sont disponibles (CTRL+C
+  CTRL+C compile le document, la bibliographie ou le visualise --en
+  fonction du \emph{contexte} estimé par Emacs);
+\item Certains raccourcis permettent de sélectionner directement des commandes \LaTeX\
+  \begin{description}
+  \item[CTRL+C CTRL+E] insère un environnement (utiliser la touche
+    tabulation pour qu'Emacs vous propose des choix);
+  \item[CTRL+C CTRL+S] insère un niveau de sectionnement;
+  \item[CTRL+C ENTR\'EE] insère une instruction.
+  \end{description}
+\end{itemize}
+
+
+\section{Programme de la section suivante}
+
+\vfill
+\begin{itemize}
+\item Présentation des principes de rédaction d'un document \LaTeX.
+\item Les différents composants d'un fichier \LaTeX;
+\item Utilisation de la classe de documents \emph{article}.
+\end{itemize}
+
+\vfill
+
+
+
+%% \section{Premier titre}
+
+%% \begin{exemple}[H] %\footnotesize
+%%   %\footnotesize
+%% \caption{Usage des caractères accentués avec \LaTeX.}
+%% \begin{verbatim}
+%% \documentclass[a4paper]{article}
+%% \begin{document}
+%%     Rédigeons un document \LaTeX.
+%% \end{document}
+%% \end{verbatim}
+%% \end{exemple}
+
+
+

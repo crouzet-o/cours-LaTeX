@@ -1,0 +1,554 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Finir Emacs, Caractères réservés.
+
+%% Parler de la compatibilité descendante (tout document compilable avec une ancienne version est également compilable sans modification de la mise en page avec les versions ultérieures).
+
+%% Afficher les extensions des fichiers sous Windows (Panneau de Conf°, Options des dossiers, Masquer les extensions (décocher).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%\input{00_presentation/plan-LaTeX.tex}
+
+
+\section{\TeX\ et \LaTeX}
+
+\begin{itemize}
+  \vfill
+\item \`A la fin des années 70, Donald Knuth, crée un système de
+  formatage de texte nommé \TeX\ (se prononce [\textipa{tEk}]). Le nom
+  \og \TeX \fg est inspiré du mot grec \textgreek{téknh} (pr. IPA :
+  [\textipa{t\'eknE\allonge}],
+  [\textipa{t\'e\textsubring{g}\textsuperscript{h}nE\allonge}] ou
+  [\textipa{t\'exnE\allonge}] selon les époques ; tr. fr. \og art \fg
+  ; lequel a donné le mot \og technique \fg).
+\item \LaTeX{} est dérivé de \TeX. C'est un ensemble de macros qui
+  permettent de faciliter l'usage de \TeX\ mais qui contribuent
+  également à \emph{dissocier la forme du contenu}. Il a été développé
+  par Leslie Lamport (c'est le [\textipa{la}] de
+  [\textipa{latEk}]). \LaTeX{} utilise \TeX{} pour la mise en page
+  mais ceci est invisible pour l'utilisateur.
+\item Nous utiliserons \LaTeXe. C'est la version actuelle (depuis
+  maintenant une bonne dizaine d'années). \vfill
+\end{itemize}
+
+
+%% Ajouter un transparent sur les sites utiles (FAQ FR + EN, CTAN, Gutenberg).
+
+\section{Sources d'information}
+
+\subsection{Sites Web sur \LaTeX}
+\label{sec:websites}
+
+\begin{description}
+\item[\url{http://www.ctan.org}] (Comprehensive Tex Archive Network)
+  et ses mirroirs.  Permet de chercher des extensions \LaTeX\ par
+  mot-clé ;
+\item[\url{http://www.tex.ac.uk/tex-archive/}] Mirroir CTAN du site
+  précédent (au Royaume-Uni) ;
+\item[\url{http://www.latex-project.org}] Site d'information sur le
+  développement de \LaTeX\ (Principalement \LaTeX3\footnote{\LaTeX3
+    est la version en cours de développement. La version \emph{stable}
+    est la version \LaTeXe, c'est cette dernière que nous
+    utiliseron.}).
+%\item[\url{TeXLive}] Site de TeXLive
+%\item[\url{MikTeX}] Site de MikTeX
+\end{description}
+
+
+\subsection{Sources d'informations sur les logiciels associés}
+
+\begin{description}
+\item[\url{http://www.gnu.org/software/emacs/emacs.html}] Le site de
+  la version GNU\footnote{cf. Free Software Foundation (FSF)} de
+  l'éditeur Emacs.
+\item[\url{http://www.xemacs.org}] La version Xemacs de l'éditeur
+  Emacs.
+\item[\url{http://www.gnu.org/software/auctex/}] Le site du mode
+  \emph{AUCTEX}, un mode d'édition de documents \TeX\ et \LaTeX\ avec
+  Emacs.
+\end{description}
+
+
+\subsection{Groupes de news}
+\label{sec:newsgroups}
+
+\begin{description}
+\item[\url{news://comp.text.tex}] Le groupe de news dédié à \TeX\ et
+  \LaTeX\ en anglais.
+\item[\url{news://fr.comp.text.tex}] Le groupe de news dédié à \TeX\
+  et \LaTeX\ en français. Aussi connu sous le nom : \emph{fctt}
+\end{description}
+
+
+\subsection{Foires aux Questions (FAQ)}
+\label{sec:faq}
+
+\begin{description}
+\item[FAQ en français] \url{http://www.grappa.univ-lille3.fr/FAQ-LaTeX/}
+\item[FAQ en anglais]
+  \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?introduction=yes}
+\end{description}
+
+
+%% Documentations, Tutoriels (Initiations), \ldots
+
+%% \begin{description}
+%% \item[Latex Short] 
+%% \end{description}
+
+ \section{Quelques exemples de livres}
+
+ \subsection{En anglais}
+
+\selectlanguage{english}
+\begin{biblist}
+  
+  \bibentry{lamport.latex}.
+  
+  \bibentry{goossens.companion}.
+  
+  \bibentry{goossens.graphics}.
+  
+  \bibentry{goossens.web}.
+  
+  %% \bibentry{kopka.guide}.
+  
+\end{biblist}
+
+
+\selectlanguage{french}
+\subsection{En français}
+
+\begin{biblist}
+  
+  \bibentry{desgraupes.latex}.
+  
+  \bibentry{rolland.latex}.
+  
+  \bibentry{latex.emacs.essentiel}.
+  
+\end{biblist}
+
+
+
+
+\section{Ouvrages libres}
+\label{sec:freebooks}
+
+
+
+\subsection{\LaTeX}
+
+\begin{biblist}
+  
+  \bibentry{framabook} (disponible en version papier).
+  
+  \bibentry{notsoshort}.
+  
+  \bibentry{notsoshortfr} (traduction française de la référence précédente).
+  
+  \bibentry{tipadoc}.
+
+\end{biblist}
+
+\subsection{Emacs, AUC\TeX, REF\TeX}
+
+\begin{biblist}
+
+  \bibentry{emacstut} (une initiation généraliste à Emacs).
+  
+  \bibentry{auctexdoc}
+
+  \bibentry{reftexdoc}
+
+\end{biblist}
+
+\section{Traitements de texte \emph{wysiwyg} et formateurs de texte}
+
+
+\begin{description}
+\item[Wysiwig] What-You-See-Is-What-You-Get. \'Equivalence entre ce
+  que l'on voit dans la fenêtre du traitement de texte et le résultat
+  à l'impression. Implique un mélange entre la forme du document et
+  son contenu.
+\item[\LaTeX] (mais aussi SGML, XML, HTML 4.0\ldots.) La forme est
+  \emph{dissociée} du contenu.
+  \begin{itemize}
+  \item On sépare le texte même du document des instructions de mise
+    en page et d'apparence de ce texte.
+  \item Ceci peut être perçu comme un inconvénient (on veut voir en
+    temps réel le résultat de ce que l'on est en train d'écrire sur la
+    page).
+  \item Mais cette dissociation présente des avantages considérables.
+    \begin{itemize}
+    \item Ce qui importe, notamment dans un texte universitaire, c'est
+      le contenu, la structure logique et hiérarchique du document. La
+      forme ne doit être que secondaire, même si une mise en forme de
+      qualité est essentielle.
+    \item Les changements de mise en forme sont nécessairement
+      indépendants du contenu. Si je décide que les titres doivent
+      être en gras, ma décision s'appliquera alors à tous les titres
+      de mon document
+    \item Ceci est en général possible avec les traitements de texte
+      wysiwyg (Word, OpenOffice.org notamment en utilisant les \og
+      styles de paragraphes \fg) mais l'utilisateur est nécessairement
+      encouragé, de part la conception même du logiciel (le wysiwyg),
+      à adopter l'attitude inverse. Avec \LaTeX, il faut vraiment
+      faire des efforts considérables pour mélanger la forme et le
+      contenu !
+    \end{itemize}
+  \end{itemize}
+\end{description}
+
+
+\section{Que fait-on lorsque l'on rédige un document ?}
+
+\begin{itemize}
+\item Lorsque vous rédigez un document universitaire, vous vous faites
+  dès le départ une idée de sa \emph{structure}, de son
+  \emph{organisation logique}. En prenant un exemple extrêmement
+  simple (p. ex. rédaction d'un article), vous savez que votre texte
+  commencera par une introduction théorique, se poursuivra par un
+  exposé de vos données et de votre analyse de ces données et se
+  terminera par une discussion / conclusion.
+\item Chacune de ces grandes parties peut se décomposer en
+  sous-sections afin d'affiner l'organisation de votre texte et d'en
+  faciliter la compréhension.
+\item Vous pourriez par exemple rédiger un texte dont la structure
+  finale sera la suivante :
+\label{struct-logique}
+  \begin{enumerate}
+  \item Introduction théorique
+    \begin{enumerate}
+    \item Historique
+    \item Exposé de deux conceptions théoriques
+      \begin{enumerate}
+      \item Théorie \no 1
+      \item Théorie \no 2
+      \end{enumerate}
+    \item Solutions pour évaluer leur validité
+    \end{enumerate}
+\item Présentation des données
+  \begin{enumerate}
+  \item Description des données
+  \item Interprétation des données
+  \end{enumerate}
+  \item Discussion
+  \end{enumerate}
+\item Cette \emph{organisation logique} est un préalable à votre
+  rédaction : il serait difficile de commencer un tel travail sans
+  avoir une idée de la structure que vous souhaitez faire ressortir,
+  même si --évidemment-- la structure finale pourra différer
+  légèrement de votre idée initiale.
+\end{itemize}
+
+\section{Comment rédiger ce document ?}
+
+\begin{itemize}
+\item Lorsque vous vous lancez dans la rédaction de ce document avec
+  un logiciel Wysiwyg, vous attribuez aux différentes parties de votre
+  texte une mise en forme fondée sur cette structure.
+\item Mais la conception même des traitements de texte de ce type vous
+  incite à focaliser votre attention sur :
+  \begin{itemize}
+  \item la forme du texte (La police des titres de 1\up{er} niveau
+    doit-elle être de 16 ou 18 pt ? en police \emph{Times} ou
+    \emph{Helvetica} ? en \emph{gras}, \emph{italique} ou \emph{roman}
+    (normal) ?)\ldots
+  \item \ldots bien plus que sur leur \emph{fonction} dans le document
+    (section, sous-section, sous-sous-section\ldots).
+  \end{itemize}
+\item Ainsi, même si vous faites partie des rares utilisateurs qui
+  font usage des feuilles de style, vous êtes en permanence incité à
+  juger l'aspect visuel de votre document.
+\item Avec \LaTeX, au contraire, vous suivez pas à pas la structure
+  que vous avez à l'esprit.  Ainsi, pour écrire le texte correspondant
+  à votre 1\up{er} titre de niveau 1, vous allez indiquer à \LaTeX\
+  que ce texte correspond à un titre de section, idem pour les
+  sous-sections et les sous-sous-sections, etc.
+\end{itemize}
+
+
+\section{Dissociation Fond / Forme avec \LaTeX}
+
+\begin{itemize}
+\item Par conséquent, la représentation du document cité en exemple
+  Section \ref{struct-logique} (p.\pageref{struct-logique}) sera, avec
+  \LaTeX, très similaire à ce qui suit :
+    \begin{exemple}
+      \caption{Comment \LaTeX\ incite à se focaliser sur le contenu
+        plutôt que sur la forme.}
+      \footnotesize
+\begin{verbatim}
+
+\section{Introduction théorique}
+
+    \subsection{Historique}
+
+    \subsection{Exposé de deux théories actuelles}
+
+        \subsubsection{Théorie 1}
+
+        \subsubsection{Théorie 2}
+
+    \subsection{Solutions pour évaluer leur validité}
+
+\section{Présentation des données}
+
+    \subsection{Description des données}
+
+    \subsection{Interprétation des données}
+
+\section{Discussion}
+\end{verbatim}
+    \end{exemple}
+  \item Entre ces éléments, vous intercalerez le texte. Ainsi, au
+    cours de la rédaction, c'est la \emph{structure logique} du
+    document qui est décrite.  Aucune interférence liée à
+    l'\emph{apparence} du texte ne peut intervenir.
+\end{itemize}
+
+
+\section{Et la mise en forme alors ?}
+
+\begin{itemize}
+\item \LaTeX\ appliquera lui-même une mise en forme standard de
+  qualité à ce document sans aucune intervention particulière de
+  l'auteur (nous verrons celà bientôt).
+\item Si l'auteur souhaite une mise en forme différente, ce travail
+  sur la mise en forme pourra parfaitement se faire à la fin de la
+  rédaction, lorsque l'auteur sera satisfait de son texte (ici, texte
+  = contenu !).
+\item Ce travail peut également avoir lieu au milieu de la rédaction
+  (pendant les périodes moins productives par exemple).
+\item L'important est que \og travail sur le contenu \fg\
+  (scientifique, intellectuel\ldots) et \og travail sur l'apparence
+  \fg\ sont totalement dissociés l'un de l'autre et n'interfèreront
+  jamais.
+\end{itemize}
+
+
+
+\section{Avantages vs. Inconvénients}
+
+
+\begin{description}
+\item[Avantages] de \LaTeX\ (entre autres) :
+  \begin{itemize}
+  \item Mise en page de qualité professionnelle (il dispose de \og
+    connaissances \fg typographiques qu'il applique automatiquement
+    afin de donner au texte une apparence optimale);
+  \item Il suffit de connaître quelques commandes de base pour décrire
+    la structure logique du document. Il n'est pas nécessaire de se
+    préoccuper de la mise en page ;
+  \item Des structures complexes telles que les notes de bas de page,
+    les renvois, la table des matières ou les références
+    bibliographiques sont produites relativement facilement ;
+  \item \LaTeX{} encourage les auteurs à écrire des documents bien
+    structurés, parce que c'est ainsi qu'il fonctionne (en décrivant
+    la structure) ;
+  \item \TeX{}, l'outil de formatage de \LaTeX{}, est portable et
+    gratuit. Il est ainsi disponible sur quasiment tous les types
+    d'ordinateurs existants ;
+  \item La compilation d'un document \LaTeX\ produira strictement le
+    même document (PDF par exemple) quel que soit l'ordinateur et la
+    distribution de \LaTeX avec laquelle il est compilé\footnote{C'est
+      loin d'être le cas avec les traitements de texte wysiwyg.} ;
+  \item Les distributions \TeX\ (et qui incluent \LaTeX) sont
+    libres.
+  \end{itemize}
+\end{description}
+
+
+\section*{Avantages vs. Inconvénients}
+
+\begin{description}
+\item[Inconvénients] de \LaTeX\ :
+  \begin{itemize}
+  \item Les utilisateurs de traitements de texte WYSIWYG éprouvent
+    parfois du mal à s'adapter à une approche centrée sur la
+    structuration du document ;
+  \item Ceci s'accompagne en général d'un autre inconvénient (si on
+    considère que c'est un inconvénient) : alors qu'utiliser un
+    logiciel WYSIWYG semble très simple au premier abord, \LaTeX\
+    demande un investissement non-négligeable pour l'apprentissage ;
+  \item \'Ecrire, avec \LaTeX{}, des documents mal organisés et mal
+    structurés est très difficile !
+  \end{itemize}
+\end{description}
+
+
+
+\section{\LaTeX{} : Présentation rapide}
+\label{slide:skel}
+
+\begin{itemize}
+\item La rédaction d'un document \LaTeX{} peut se faire avec n'importe
+  quel éditeur de texte (notepad sous windows par exemple, gnotepad
+  sous linux)
+\item Mais il existe des éditeurs de texte très performants qui
+  permettent d'aller beaucoup plus vite que les simples éditeurs
+  fournis en standard. Pour rédiger un document \LaTeX, on peut
+  notamment utiliser : emacs (c'est lui que nous utiliserons), vi,
+  technic center, TeXShell\ldots).
+\item On fait parcourir le document par l'interpréteur \LaTeX{} qui
+  crée en sortie un document mis en page, visualisable et imprimable.
+\item Ce document est, généralement, un fichier au format DVI (pour
+  \emph{Device Independent} : indépendant du système de visualisation
+  ou d'impression : son apparence ne change pas d'un système à
+  l'autre, même si la version des logiciels change !).
+\item Ce fichier DVI peut alors être transformé en d'autres formats
+  (postscript, PDF notamment).
+\item On verra qu'il existe d'autres formats de destination possibles
+  à partir du fichier \LaTeX. (PDF directement, HTML,
+  OpenOffice\ldots).
+\end{itemize}
+\vfill
+
+
+
+\section{Notre premier document \LaTeX}
+
+\begin{itemize}
+\item Lancer emacs (ou tout autre éditeur de texte).
+\item Créer un nouveau fichier.
+
+\item Insérer le texte suivant :
+  \begin{exemple}[H] %\footnotesize
+    \caption{Le squelette d'un document \LaTeX.}
+\begin{verbatim}
+\documentclass[a4paper]{article}
+
+\begin{document}
+Ceci est un document latex.
+\end{document}
+\end{verbatim}
+  \end{exemple}
+  
+\item Sauvegarder (\texttt{doc1.tex}) et compiler. Pour ceci, nous
+  allons passer par la ligne de commande\footnote{dans les exemples
+    suivants, le caractère \$ indique que ce qui apparaît doit être
+    entré en ligne de commande : vous ne devez entrer au clavier que
+    ce qui le suit.}. Sous Linux, on s'y habitue très vite, du fait de
+  la conception de Windows, l'usage de la ligne de commande sous ce
+  système tient du cauchemar. \emph{Pas de panique !}  nous verrons
+  que l'on peut s'en passer.
+\item Pour compiler votre document en ligne de commande vous devez
+  vous placer dans le répertoire qui contient votre fichier \LaTeX.
+  \begin{exemple}[H] %\footnotesize
+    \caption{La compilation d'un document \LaTeX}
+\begin{verbatim}
+$ latex doc1.tex
+\end{verbatim}
+  \end{exemple}
+  
+\item Visualiser \texttt{doc1.dvi} :
+  \begin{exemple}[H] %\footnotesize
+    \caption{La visualisation d'un document \LaTeX.}
+\begin{verbatim}
+$ xdvi doc1.dvi
+\end{verbatim}
+  \end{exemple}
+\end{itemize}
+
+
+\section{Un exemple un peu plus intéressant}
+
+\begin{itemize}
+\item Ne fermez aucune des fenêtres que nous venons
+  d'utiliser. Retournez dans l'éditeur de texte et remplacez :
+  \begin{itemize}
+  \item ``\verb1document1'' par ``\verb1\emph{document}1''.
+  \item ``\verb1latex1'' par ``\verb1\LaTeX1'' en respectant les
+    majuscules.
+    \begin{itemize}
+    \item Sauvegardez \texttt{doc1.tex} et compilez le (formatez-le).
+    \item Retournez dans la fenêtre \texttt{xdvi} et observez ce qui a
+      changé.
+    \end{itemize}
+  \end{itemize}
+\item Le $\backslash$ (backslash ou barre oblique inversée) indique à
+  \LaTeX{} que ce qui suit est une instruction spéciale (une macro que
+  \LaTeX{} retrouve à partir de son nom. La procédure nommée
+  \verb1\LaTeX1 indique au formateur de texte qu'il devra écrire une
+  séquence de lettres (qui est l-a-t-e-x mais qui n'a rien à voir avec
+  le nom de l'instruction) en attribuant des positions spécifiques sur
+  la ligne (ceci afin de mettre en forme le logo \LaTeX{}).
+\item Toute la structuration du texte (titre, auteur, sections,
+  \ldots) ainsi que les instructions de mise en forme se fait avec des
+  instructions de ce type.
+  \begin{itemize}
+  \item \verb1\documentclass[...]{...}1 est une instruction qui permet
+    de décrire le type de document que l'on rédige. Elle prend en
+    \emph{argument} des valeurs qui vont être utilisées par le
+    formateur \LaTeX{} pour décider du type de mise en page à
+    appliquer. Tout ce qui se trouve entre crochets (\verb1[]1)
+    correspond à des arguments optionnels, l'argument situé entre
+    accolades (\verb1{}1) est obligatoire : ici, c'est lui qui indique
+    la \emph{classe} du document (article, book, report\ldots).
+  \item \verb1\begin{...}1 et \verb1\end{...}1 indiquent
+    respectivement le début et la fin d'un \emph{environnement}.
+  \end{itemize}
+\end{itemize}
+
+
+\section{Instructions et environnements} % et Déclarations
+
+
+\begin{description}
+\item[Instruction] Commande qui reçoit zéro, un ou plusieurs
+  arguments.
+  \begin{itemize}
+  \item (Ces arguments peuvent être obligatoires ou
+    optionnels). L'argument peut servir à donner une instruction
+    précise à \LaTeX{} (comme dans \verb1\documentclass{article}1) ou
+    simplement correspondre à du texte à mettre en forme (comme dans
+    \verb1\emph{document}1). Certaines instructions ne nécessitent
+    aucun argument (par exemple \verb1\LaTeX1).
+  \end{itemize}
+\item[Déclaration] Certaines instructions fonctionnent comme des
+  \emph{déclarations}. Une déclaration agit sur tout le reste du
+  document (nous verrons des exemples plus tard).
+    \begin{itemize}
+    \item Par exemple, \verb1\bfseries1 indique de mettre tout ce qui suivra en
+      gras. On peut limiter son application avec des accolades (p. ex.
+      \verb1{\bfseries ceci est en gras} mais pas ça1).
+    \end{itemize}
+\end{description}
+\begin{description}
+\item[Environnement] Zone sur laquelle vont s'appliquer certaines
+  caractéristiques de mise en forme. Un environnement est toujours
+  délimité par une instruction \verb1\begin{nom-de-l'environnement}1
+    et une instruction \verb1\end{nom-del'environnement1.
+  \begin{itemize}
+    
+  \item Nous avons vu un seul type d'environnement jusqu'à maintenant:
+    l'environnement \texttt{document}.
+    \begin{exemple}
+      \caption{L'environnement \texttt{document}.}
+                                %      \begin{boxedminipage}{.8\textwidth}
+      %\footnotesize
+\begin{verbatim}
+\begin{document}
+...
+\end{document}
+\end{verbatim}
+                                %\end{boxedminipage}
+    \end{exemple}
+    
+  \item Il délimite le début et la fin du document.  Il est
+    \emph{obligatoire} quelle que soit la classe de document utilisée.
+    Toutes les autres parties du texte à écrire seront introduites
+    entre ces deux instructions.
+
+  \end{itemize}
+\end{description}
+
+
+

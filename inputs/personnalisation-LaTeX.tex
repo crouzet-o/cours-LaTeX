@@ -1,0 +1,260 @@
+
+\section{Le contrôle des tailles avec \LaTeX}
+
+Dans les pages suivantes, un certain nombre de commandes contrôlent
+des dimensions qui prises en compte par \LaTeX\ lors du formatage. Les
+dimensions peuvent être exprimées dans différentes unités, parmi
+lesquelles :
+
+Les quatre premières unités (cm, mm, in, pt) sont des unités absolues
+(leur valeur reste la même quel que soit le contexte dans lequel on se
+trouve). Les deux dernières sont des unités dites relatives (leur
+valeur réelle dépend du contexte, c'est à dire de la taille de la
+police en cours).
+
+
+\begin{description}
+\item[cm] centimètres;
+\item[mm] millimètres;
+\item[in] pouces (inches);
+\item[pt] points (dimension informatique);
+\item[ex] taille verticale d'un \emph{x} (permet d'indiquer une taille
+  relative à la police utilisée);
+\item[em] taille horizontale d'un \emph{m} (permet également
+  d'indiquer une taille relative à la police utilisée);
+\end{description}
+
+\section{Double interligne}
+
+Dans la plupart des documents universitaires (mais aussi parfois lors
+de la soumission d'articles dans des revues scientifiques), il vous
+est demandé de fournir des textes avec une interligne double. Il
+existe une extension destinée spécifiquement à cet usage :
+
+\begin{verbatim}
+\usepackage{setspace}
+\doublespacing
+
+ou
+
+\onehalfspacing
+
+\end{verbatim}
+
+Comme d'habitude, l'appel de l'extension se fait dans l'en-tête du
+document.
+
+La commande \verb1\doublespacing1 (ou \verb1\onehalfspacing1) est
+aussi introduite dans l'en-tête; elle est valable pour l'ensemble du
+document.
+
+A priori, vous \emph{ne devez pas} changer ce paramètre en cours de
+document. Si toutefois vous tenez absolument à le faire, l'extension
+fournit aussi des environnement permettant de changer temporairement
+le réglage.
+
+
+\section{Marges}
+
+L'extension \emph{geometry} permet de contrôler précisément la taille
+des marges du document (entre autres). Son utilisation est très simple
+:
+
+\begin{verbatim}
+\usepackage[left=5cm,right=4cm,bottom=2.5cm,top=2.5cm]{geometry}
+\end{verbatim}
+
+
+
+
+
+
+\section{Formatage de la page de titre}
+
+Pour formater votre page de titre, vous pouvez, à la place de
+l'instruction \verb1\maketitle1 vue au début du cours, utiliser un
+code similaire à ce qui suit et l'adapter à votre convenance :
+
+
+\begin{footnotesize}
+\begin{verbatim}
+\begin{titlepage}
+  \singlespacing
+  \sffamily
+  \begin{center}
+    {\bfseries\large Université de Nantes}\\
+    {UFR Lettres et Langages}\\
+    {Année Universitaire 2005--2006}\\
+    \vfill
+
+    {\Large\bfseries Titre du Mémoire}
+
+    \vspace{2ex} {\large \'Eventuellement un sous-titre}
+     
+    \vspace{8ex}
+    Prénom Nom\\
+    Date
+
+    \begin{flushright}
+      \vfill
+      \begin{tabular}{lr}
+        Membres du Jury : & \\
+        & Nom, Prénom (directeur du mémoire)\\
+        & Nom, prénom\\
+      \end{tabular}
+    \end{flushright}
+    \vspace{8ex}
+    
+    { Master 2 mention \og Langues et Langages \fg\\
+      Spécialité \og Sciences du Langage \fg\\
+    Parcours \og Informatisation des Langues \fg\\}
+  \end{center}
+\end{titlepage}
+\end{verbatim}
+\end{footnotesize}
+
+
+
+
+\section{En-têtes et Pieds de pages}
+
+Pour contrôler les en-têtes et les pieds de page, on utilise
+l'extension \emph{fancyhdr} (pour \emph{fancy headers}). On déclare
+que le style de page utilisé sera le style \emph{fancy} (celui produit
+par cette extension) et on définit la nature des différentes parties
+de ces éléments.
+
+On définit ci-dessous les caractéristiques de l'en-tête droite et
+gauche et celles du pied de page au centre (dans lequel on va placer
+les numéros de page).
+
+On met ensuite la largeur des lignes de séparation entre l'en-tête et
+le texte (et respectivement le pied de page) à 0 points (pas de
+lignes).
+
+Les commandes \verb1\rightmark1 et \verb1\leftmark1 permettent de
+faire varier le texte de manière automatique (en fonction des classes
+de documents, les en-têtes gauche et droit contiendront par exemple
+les noms des auteurs, le titre du document, le titre du chapitre en
+cours\ldots
+
+\begin{verbatim}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhf{} % ici, on vide les en-têtes et pieds de page avant de les définir
+
+\fancyhead[R]{\small \sffamily En-tête à droite} (on peut par exemple mettre \rightmark)
+\fancyhead[L]{\small \sffamily En-tête à gauche} (on peut par exemple mettre \leftmark)
+\fancyfoot[C]{\small \sffamily \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\end{verbatim}
+
+
+\section{Personnalisation des titres de section (mode de numérotation)}
+
+On contrôle le mode de numérotation en redéfinissant les commandes
+suivantes (qui sont utilisées automatiquement par \LaTeX\ lors de la
+compilation). Il convient, au préalable, de \emph{relever} la
+profondeur de section au-delà de laquelle s'interrompt la numérotation
+des sections.
+
+{\small
+\begin{verbatim}
+\setcounter{secnumdepth}{7}
+
+\def\thechapter{\Roman{chapter}}
+\def\thesection{\Alph{section}}
+\def\thesubsection{\Roman{subsection}}
+\def\thesubsubsection{\arabic{subsubsection}}
+\def\theparagraph{\roman{paragraph}}
+\def\thesubparagraph{\alph{subparagraph}}
+\end{verbatim}
+}
+
+\section{Personnalisation des titres de section (changement de mise en forme simple)}
+
+On fait appel à l'extension \emph{sectsty} et on redéfinit chaque
+niveau de section (alignement du texte, taille de la police, graisse,
+type de police, éventuellement suppression de la numérotation des
+pages, insertion d'un saut de page préalable).
+
+{\small
+\begin{verbatim}
+\usepackage{sectsty}
+
+%\partfont{\centering\Huge\bfseries\sffamily\thispagestyle{empty}}
+%\chapterfont{\Large\bfseries\sffamily}
+\sectionfont{\newpage\raggedleft\large\bfseries\sffamily}
+\subsectionfont{\large\mdseries\sffamily}
+\subsubsectionfont{\normalsize\mdseries\sffamily}
+\end{verbatim}
+}
+
+
+\section{Personnalisation des titres de section (changement de mise en forme plus complexe)}
+
+On fait appel à l'extension \emph{titlesec} (et ici on ajoute un
+recours à l'extension \emph{scalefont} qui permet de gérer plus
+finement les tailles de police). Le format des commandes est le suivant :
+
+{\small
+\begin{verbatim}
+\titleformat{niveau}[formatage du paragraph]{formatage du titre}{formatage du numéro}...
+                          ...{espacement entre numéro et titre}{code à insérer après le titre}
+\end{verbatim}
+}
+
+{\scriptsize
+\begin{verbatim}
+\usepackage{scalefnt}
+\usepackage{titlesec}
+
+\titleformat{\part}[display]{\raggedleft\Huge\scalefont{1.3}\sffamily\bfseries\thispagestyle{empty}}{\partname}{0cm}{}
+\titleformat{\chapter}[display]{\raggedleft\Huge\sffamily\bfseries}{\chaptertitlename\ \thechapter}{0cm}{}
+\titleformat{\section}{\Large\sffamily\bfseries}{\thesection)\quad}{0cm}{}
+\titleformat{\subsection}{\Large\sffamily}{\thesubsection --\quad}{0cm}{}
+\titleformat{\subsubsection}{\large\sffamily\itshape\raggedright}{\thesubsubsection.\quad}{0cm}{}
+\titleformat{\paragraph}{\normalsize\sffamily\itshape\raggedright}{\theparagraph\quad}{0cm}{}
+\titleformat{\subparagraph}{\normalsize\sffamily\itshape\raggedright}{\thesubparagraph\quad}{0cm}{}
+\end{verbatim}
+}
+
+
+\section{Modification des paragraphes}
+
+On peut modifier très simplement l'indentation par défaut (espace en
+début de ligne lors des changements de paragraphe) et l'espacement
+vertical entre paragraphes :
+
+\begin{verbatim}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1em}
+\end{verbatim}
+
+
+
+\section{Et maintenant ?}
+
+Si vous avez réussi à tenir jusqu'au bout, alors vous êtes sur la
+bonne voie\ldots mais votre apprentissage est loin d'être fini. Il
+existe très certainement un millier de choses que vous souhaiteriez
+pouvoir faire sans encore savoir comment vous pourriez vous y prendre
+avec \LaTeX. Il vous faudra faire preuve de beaucoup de patience et
+d'un travail régulier, lire la documentation qui fourmille sur
+internet, vous procurer un livre (éventuellement en format
+électronique, cf. les références données p.~\pageref{sec:freebooks}),
+rechercher des extensions qui pourraient répondre à vos besoins en
+consultant le \emph{Comprehensive Tex Archive Network}
+(p.~\pageref{sec:websites}).
+
+N'hésitez pas aussi à rechercher la réponse à vos problèmes dans les
+foires aux question (p.~\pageref{sec:faq}) et à consulter
+régulièrement les \emph{newsgroups} (p.~\pageref{sec:newsgroups}).
+
+\vfill
+
+\hfill Bon courage\ldots et bonne route avec \LaTeX !
+
+\vfill

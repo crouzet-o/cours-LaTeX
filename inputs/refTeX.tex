@@ -1,0 +1,43 @@
+\section{Présentation de REF\TeX}
+\label{sec:reftex}
+
+\vfill
+\begin{itemize}
+\item REF\TeX\ est un mode \emph{mineur} d'Emacs qui peut s'ajouter à AUC\TeX.
+\item Il a pour fonction de gérer les références de tout type\ldots et notamment
+  les références bibliographiques.
+\item Pour le lancer, on tape \verb1M-x reftex-mode1 dans Emacs.
+\item Mais on peut aussi le charger automatiquement dès qu'AUC\TeX\ est lui-même
+  lancé. Pour celà, il faut entrer les lignes suivantes dans le fichier de
+  démarrage d'Emacs (\verb1.emacs1):
+  \begin{itemize}
+%  \item \verb1(require 'tex-site)1
+  \item \verb1(add-hook 'LaTeX-mode-hook 'turn-on-reftex)1
+  \item \verb1(setq reftex-plug-into-AUCTeX t)1
+  \end{itemize}
+\end{itemize}
+\vfill
+
+% '(reftex-default-bibliography (quote ("/home/olivier/texmf/bibtex/bib/olivier-perso.bib" "/home/olivier/texmf/bibtex/bib/speech-science.bib")))
+
+Si le mode REF\TeX\ est bien lancé, vous devriez voir un menu \og Ref
+\fg apparaître dans la barre de menu d'Emacs.
+
+\section{Gestion des références bibliographiques}
+
+Le menu Ref $\Rightarrow$ Cite vous permet de faire une recherche dans
+votre base de données bibliographique.
+
+Si vous sélectionnez une entrée dans celles proposées, il insère la
+commande nécessaire à l'endroit où se trouve le curseur.
+
+
+\section{Gestion des renvois}
+
+La gestion des renvois fonctionne de la même manière : vous pouvez
+utiliser Ref $\Rightarrow$ Label pour insérer un label, et Ref
+$\Rightarrow$ Ref pour insérer un renvoi. Dans ce dernier cas, Emacs
+vous proposera de sélectionner le type de référence (section,
+équation, figure, tableau\ldots --un appui sur la barre espace fera
+une recherche sur toutes les sources possible), puis vous présentera
+une liste des éléments vers lesquels vous pouvez produire un renvoi.

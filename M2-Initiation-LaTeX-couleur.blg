@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/dev/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: M2-Initiation-LaTeX-couleur.aux
+The style file: apaformat.bst
+A level-1 auxiliary file: inputs/presentation-LaTeX.aux
+A level-1 auxiliary file: inputs/emacs.aux
+A level-1 auxiliary file: inputs/standard-LaTeX.aux
+A level-1 auxiliary file: inputs/langues-LaTeX.aux
+A level-1 auxiliary file: inputs/linguistics-LaTeX.aux
+A level-1 auxiliary file: inputs/advanced-LaTeX.aux
+A level-1 auxiliary file: inputs/floats-graph-LaTeX.aux
+A level-1 auxiliary file: inputs/floats-table-LaTeX.aux
+A level-1 auxiliary file: inputs/biblio-LaTeX.aux
+A level-1 auxiliary file: inputs/refTeX.aux
+A level-1 auxiliary file: inputs/biblio-natbib.aux
+A level-1 auxiliary file: inputs/biblio-jurabib.aux
+A level-1 auxiliary file: inputs/personnalisation-LaTeX.aux
+Database file #1: latex.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 15 entries,
+            3204 wiz_defined-function locations,
+            746 strings with 7650 characters,
+and the built_in function-call counts, 6805 in all, are:
+= -- 562
+> -- 270
+< -- 10
++ -- 111
+- -- 88
+* -- 484
+:= -- 1131
+add.period$ -- 45
+call.type$ -- 15
+change.case$ -- 91
+chr.to.int$ -- 16
+cite$ -- 15
+duplicate$ -- 506
+empty$ -- 533
+format.name$ -- 116
+if$ -- 1343
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 100
+newline$ -- 55
+num.names$ -- 60
+pop$ -- 241
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 217
+stack$ -- 0
+substring$ -- 177
+swap$ -- 207
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 111
+warning$ -- 0
+while$ -- 45
+width$ -- 0
+write$ -- 163

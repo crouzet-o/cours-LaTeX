@@ -1,0 +1,928 @@
+\section{Créer un tableau avec les outils standards}
+\label{tabular}
+
+\vfill
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\begin{tabular}{spécification des colonnes}
+donnée & donnée & donnée & ... & donnée \\
+donnée & donnée & donnée & ... & donnée \\
+...
+\end{tabular}
+\end{verbatim}
+\end{boxedminipage}
+
+\begin{itemize}
+\item Instructions utiles
+  \begin{itemize}
+  \item \verb1\hline1 : trace une ligne horizontale sur toute la largeur du
+    tableau;
+  \item \verb1\cline{N-M}1 : trace une ligne horizontale des colonnes N à M;
+  \item \verb1\multicolumn{nbcols}{format}{Texte étendu sur plusieurs colonnes}1
+  \item la déclaration des colonnes se fait avec les lettres \emph{c,
+      l, r} (center, left, right). On indique autant de lettres que
+    l'on veut de colonnes, chaque lettre indique l'alignement du texte
+    dans la colonne;
+  \item Les \verb1&1 servent à sépararer les colonnes;
+  \item On indique la fin de ligne par \verb1\\1.
+  \end{itemize}
+\end{itemize}
+
+%%Nous allons voir quelques exemples de l'utilisation de \emph{tabular} :
+\vfill
+
+\section{Exercices}
+
+\begin{itemize}
+\item Construisez, sur papier, un tableau très simple (3 colonnes, 5
+  lignes) et reproduisez le avec \LaTeX\ en traçant toutes les lignes
+  verticales et horizontales;
+\item Reproduisez ce même tableau en supprimant toutes les lignes;
+\item Reproduisez pour finir ce même tableau en n'introduisant que les
+  lignes horizontales;
+\item Reproduisez ensuite le tableau présenté ci-dessous en utilisant
+  les instructions nécessaires.
+\end{itemize}
+
+\begin{center}
+  \begin{tabular}{|l|cr|l|} \hline
+    Alignement à gauche & Données centrées & et à droite & Largeur imposée\\ \cline{2-3}
+    Donnée & \multicolumn{2}{|c|}{Donnée} & \\ \hline
+    1.10 & 2.20 & 3.20 & 4.69 \\
+    1.10 & 2.20 & 3.20 & 4.69 \\
+    1.10 & 2.20 & 3.20 & 4.69 \\ \hline
+  \end{tabular}
+\end{center}
+
+
+\section{L'environnement \emph{tabular}: réponse à la question
+  précédente}
+
+\begin{boxedminipage}{\textwidth}
+\footnotesize
+\begin{verbatim}
+\begin{center}
+  \begin{tabular}{|l|cr|l|} \hline
+    Alignement à gauche & Données centrées & et à droite & Largeur imposée\\ \cline{2-3}
+    Donnée & \multicolumn{2}{|c|}{Donnée} & \\ \hline
+    1.10 & 2.20 & 3.20 & 4.69 \\
+    1.10 & 2.20 & 3.20 & 4.69 \\
+    1.10 & 2.20 & 3.20 & 4.69 \\ \hline
+  \end{tabular}
+\end{center}
+\end{verbatim}
+\end{boxedminipage}
+
+\begin{center}
+  \begin{tabular}{|l|cr|l|} \hline
+    Alignement à gauche & Données centrées & et à droite & Largeur imposée\\ \cline{2-3}
+    Donnée & \multicolumn{2}{|c|}{Donnée} & \\ \hline
+    1.10 & 2.20 & 3.20 & 4.69 \\
+    1.10 & 2.20 & 3.20 & 4.69 \\
+    1.10 & 2.20 & 3.20 & 4.69 \\ \hline
+  \end{tabular}
+\end{center}
+
+%% Problèmes de tabular :
+
+%% - contrôle de la largeur des cellules (array, tabularx)
+%% - centrage vertical du texte dans la cellule (array)
+%% - écartement entre le texte et les lignes horizontales (booktabs)
+
+%% - tableaux longs à introduire sur plusieurs pages (longtable)
+
+%% - multirow : regroupement vertical de cellules (doit-on vraiment l'aborder ?)
+
+
+\section{Quelques problèmes centraux dans la composition d'un tableau}
+
+\vfill
+
+\subsection{Largeur des cellules}
+
+Pour les colonnes contenant du texte de longueur importante, il faut
+indiquer la largeur de colonne souhaitée, sinon l'on obtient quelque
+chose d'assez désagréable : \LaTeX\ attribue à la cellule la largeur
+du texte qu'elle contient (ce qui peut être vraiment grand !).
+
+\subsection{Alignement vertical du texte}
+
+L'environnement \emph{tabular} standard ne permet pas de contrôler
+l'alignement vertical. Le texte est nécessairement aligné avec le haut
+de la cellule.
+
+\subsection{\'Ecartement texte / ligne horizontale}
+
+Certaines lettres (les majuscules) touchent la ligne horizontale qui les domine.
+
+\vfill
+
+
+\section{Illustrations}
+
+\subsection{Largeur des cellules}
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\begin{tabular}{|l|cr|c|} \hline
+  Donnée & Donnée & Donnée & Ici un texte relativement long...\\ \hline
+\end{tabular}
+\end{verbatim}
+\end{boxedminipage}
+
+\begin{center}
+  \begin{tabular}{|l|cr|c|} \hline
+    Donnée & Donnée & Donnée & Sinon, \LaTeX\ adapte la taille de la colonne à la taille du texte. Ce qui peut poser des problèmes.\\ \hline
+    % Donnée & Donnée & Donnée & \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Alignement vertical}
+
+\begin{tabular}{|p{.5\textwidth}|ccc|} \hline
+  Texte relativement long blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah & A & A & A \tabularnewline \cline{2-4}
+  & A & A & A \tabularnewline \cline{2-4}
+  & B & B & B \tabularnewline \hline
+\end{tabular}
+
+
+\subsection{Espacement caractère / ligne}
+
+Le problème de l'espacement entre les caractères et la ligne
+horizontale est manifeste dans ces deux exemples.
+
+
+
+\section{Contrôle de la largeur des colonnes}
+
+\vfill
+
+On dispose de plusieurs solutions dont le choix dépend de la
+situation et des préférences de l'utilisateur.
+
+
+\begin{enumerate}
+\item L'utilisateur souhaite laisser \LaTeX\ gérer lui-même la largeur des
+  colonnes (gestion automatique) : utiliser l'extension \emph{tabularx}
+\item L'utilisateur souhaite avoir le contrôle total de la largeur de chaque
+  colonne : utiliser l'extension \emph{array}.
+\end{enumerate}
+
+Deux possibilités peuvent apparaître :
+\begin{enumerate}
+\item \label{toutes}Toutes les cases de la colonne vont contenir un texte de
+  ce type. On utilise une technique de définition des colonnes avec l'appel à
+  l'extension \emph{array}.
+\item \label{titre}Seule une case (souvent dans la ligne de titre ou
+  dans la colonne de gauche) contient un texte long, le reste
+  contenant des données (par exemple numériques). On pourra utiliser
+  soit \emph{array}, soit \emph{tabularx}.
+\end{enumerate}
+
+Pour le problème de l'espacement entre lignes horizontales et
+caractères, on utilisera l'extension \emph{booktab}.
+
+\vfill
+
+
+
+
+% \section{Première situation}
+
+% \begin{boxedminipage}{\textwidth}
+% \begin{verbatim}
+% \begin{center}
+%   \begin{tabular}{|l|cr|p{.3\textwidth}|} \hline
+%     Donnée & Donnée & Donnée & \begin{center}Et une case...\end{center}\\ \hline
+%     ...
+%     Donnée & \multicolumn{2}{|c|}{Donnée} & \\ \hline
+%   \end{tabular}
+% \end{center}
+% \end{verbatim}
+% \end{boxedminipage}
+
+
+% \begin{center}
+%   \begin{tabular}{|l|cr|p{.3\textwidth}|} \hline
+%     Donnée & Donnée & Donnée & \begin{center}Et une case du tableau qui contient beaucoup de texte. La dimension de cette case est fixée, pas automatique.\end{center}\\ \hline
+%     Donnée & Donnée & Donnée & \begin{center}Et une case du tableau qui contient beaucoup de texte. La dimension de cette case est fixée, pas automatique.\end{center}\\ \hline
+%     Donnée & \multicolumn{2}{|c|}{Donnée} & \\ \hline
+%   \end{tabular}
+% \end{center}
+
+
+
+
+
+
+
+% \section{Seconde situation}
+
+%  \begin{boxedminipage}{\textwidth}
+%  \begin{verbatim}
+%  \begin{center}
+%  \begin{tabular}{|l|cr|r|} \hline
+%  Don. & Don. & Don. & \begin{minipage}{.4\textwidth} TEXTE \end{minipage}\\ \hline
+%  1.10 & 2.20 & 3.20 & 4.69 \\
+%  1.10 & 2.20 & 3.20 & 4.69 \\
+%  1.10 & 2.20 & 3.20 & 4.69 \\ \hline
+%  \end{tabular}
+%  \end{center}
+%  \end{verbatim}
+%  \end{boxedminipage}
+
+%  \begin{center}
+%  \begin{tabular}{|l|cr|r|} \hline
+%  Donnée & Donnée & Donnée & \begin{minipage}{.4\textwidth}Et une case du tableau qui contient beaucoup de texte. La dimension de cette case est fixée, pas automatique.\end{minipage}\\ \hline
+%  1.10 & 2.20 & 3.20 & 4.69 \\
+%  1.10 & 2.20 & 3.20 & 4.69 \\
+%  1.10 & 2.20 & 3.20 & 4.69 \\ \hline
+%  \end{tabular}
+%  \end{center}
+
+%  Quelques problèmes persistent :
+
+%  \begin{itemize}
+%  \item Comment joindre deux cellules verticalement ? (multirow)
+%  \item Comment centrer le texte verticalement dans les cases ? (array)
+%    \begin{itemize}
+%    \item Remarquez qu'en utilisant minipage au lieu de \verb1p{largeur}1, les
+%      autres cellules sont centrées verticalement.
+%    \end{itemize}
+%  \item Le texte des données chevauche les lignes horizontales du tableau
+%    (booktab)
+%  \end{itemize}
+
+
+
+
+
+
+
+\section{L'extension \emph{tabularx}}
+
+\vfill
+
+\begin{itemize}
+  
+\item On appelle l'extension \emph{tabularx} et on utilise
+  l'environnement \emph{tabularx}.
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\usepackage{tabularx}
+...
+\begin{tabularx}{.9\textwidth}{Xccc}
+...
+\end{tabularx}
+\end{verbatim}
+\end{boxedminipage}
+
+
+\item On indique la largeur souhaitée pour tout le tableau (par
+  exemple 90\% de la largeur de la page) et on marque les colonnes à
+  faire varier automatiquement par un X. Les autres colonnes prennent
+  la largeur du texte qu'elles contiennent (fonctionnement classique
+  de \LaTeX).
+
+\begin{tabularx}{.9\textwidth}{|X|ccc|} \hline
+Texte relativement long blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah & A & A & A \tabularnewline \cline{2-4}
+& A & A & A \tabularnewline \cline{2-4}
+& B & B & B \tabularnewline \hline
+\end{tabularx}
+
+\item Problèmes de tabularx : ne permet pas de contrôler l'alignement
+  vertical du texte dans les cellules (toujours aligné en
+  haut). L'apparence finale est --de mon point de vue-- nettement
+  moins agréable qu'avec le contrôle fourni par \emph{array}.
+
+\end{itemize}
+
+\vfill
+
+
+
+
+\section{L'extension \emph{array}}
+
+\begin{itemize}
+\item On appelle l'extension \emph{array} dans l'en-tête du document par
+  \verb1\usepackage{array}1.
+\item L'utilisation est ensuite exactement la même que dans la version standard
+  de \LaTeX. (environnement tabular).
+\item Par exemple :
+
+  \begin{boxedminipage}{\textwidth}
+\small
+\begin{verbatim}
+\begin{tabular}{b{.5\textwidth}b{.1\textwidth}cc} \hline
+Texte relativement long blah ... & A & A & A \\ \cline{2-4}
+                            & A & A & A \\ \cline{2-4}
+                            & B & B & B \\ \hline
+\end{tabular}
+\end{verbatim}
+  \end{boxedminipage}
+
+\item donne :
+
+\begin{tabular}{b{.5\textwidth}b{.1\textwidth}cc} \hline
+Texte relativement long blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah & A & A & A \tabularnewline \cline{2-4}
+& A & A & A \\ \cline{2-4}
+& B & B & B \\ \hline
+\end{tabular}
+
+\item Chaque colonne se voit attribuer une largeur fixée par le
+  rédacteur. Le texte qui est plus large que cette colonne est
+  \emph{plié} aux dimensions de la colonne. Vous remarquez que les
+  déclarations des colonnes sont, pour certaines, très différentes :
+  on a remplacé une lettre (c, l ou r) par la commande
+  \verb1b{.5\textwidth}1 par exemple pour la première colonne. Les
+  colonnes déclarées c, l ou r continuent d'être gérées classiquement
+  (largeur automatique attribuée par \LaTeX).
+
+\end{itemize}
+
+\section{Améliorer l'usage de l'extension \emph{array}}
+
+\begin{itemize}
+\item \emph{array} fournit la possibilité de définir \emph{au préalable} des
+  déclarations pour les colonnes.
+\item L'instruction \verb1\newcolumntype{lettre}{définition}1 permet, avant la
+  composition du tableau, de définir les caractéristiques des colonnes en leur
+  attribuant des types.
+\item Exemple :
+\begin{verbatim}
+\newcolumntype{t}{b{.40\textwidth}}
+\newcolumntype{d}{b{.10\textwidth}}
+\end{verbatim}
+\item Définit 2 nouveaux types de colonnes : t (40\% de la largeur du
+  texte, texte aligné sur le bas de la cellule) et d (10\% de la
+  largeur du texte et texte également aligné sur le bas de la
+  cellule).
+\item On peut alors utiliser les lettres \emph{t} et \emph{d} à la place (ou en
+  alternance) des lettres \emph{l}, \emph{c} ou \emph{r}.
+\item Cette fonctionnalité permet même de modifier d'autres caractéristiques des
+  cellules : notamment la police utilisée, la taille\ldots
+\begin{verbatim}
+\newcolumntype{t}{>{\slshape}b{.40\textwidth}}
+\newcolumntype{d}{>{\centering\ttfamily\small}b{.10\textwidth}}
+\end{verbatim}
+\item Attention cependant : remplacer \verb1\\1 par \verb1\tabularnewline1 pour
+  marquer les fins de lignes du tableau.
+\end{itemize}
+
+
+
+
+\section{Règle d'utilisation de \emph{newcolumntype}}
+
+\begin{center}
+\begin{verbatim}
+    \newcolumntype{t}{>{formatage}b{.40\textwidth}}
+\end{verbatim}
+\end{center}
+
+\begin{itemize}
+\item Où le formatage peut servir à déclarer un choix de type de police :
+  \begin{itemize}
+  \item \verb1\rmfamily1 : Roman (= Serif, cf. Times)
+  \item \verb1\sffamily1 : Sans Serif (cf. Helvetica)
+  \item \verb1\ttfamily1 : Typewriter (cf. Courier) \emph{Particulièrement utile
+      pour les colonnes de chiffres}
+  \end{itemize}
+\item une orientation des caractères :
+  \begin{itemize}
+  \item \verb1\slshape1 : Slanted (italique)
+  \item \verb1\upshape1 : Droit (par défaut)
+  \item \verb1\scshape1 : Small Caps (petites capitales)
+  \end{itemize}
+\item une graisse :
+  \begin{itemize}
+  \item \verb1\bfseries1 : Gras
+  \end{itemize}
+\item un alignement horizontal :
+  \begin{itemize}
+  \item \verb1\centering1 : Centré
+  \item \verb1\raggedleft1 : Repoussé depuis la gauche (Aligné à droite)
+  \item \verb1\raggedright1 : Repoussé depuis la droite (Aligné à gauche)
+  \end{itemize}
+\item une taille de caractères :
+  \begin{itemize}
+  \item \verb1\tiny1 : du plus petit
+  \item \verb1\scriptsize1 : \ldots
+  \item \verb1\footnotesize1 : \ldots
+  \item \verb1\small1 : \ldots
+  \item \verb1\normalsize1 : \ldots
+  \item \verb1\large1 : \ldots
+  \item \verb1\Large1 : \ldots
+  \item \verb1\LARGE1 : \ldots
+  \item \verb1\huge1 : \ldots
+  \item \verb1\Huge1 : au plus grand
+  \end{itemize}
+\end{itemize}
+
+Exemple : \verb2\newcolumntype{d}{>{\ttfamily\raggedleft}b{.1\textwidth}}2
+
+Ces déclarations sont des commandes standard de \LaTeX\ (on peut les
+utiliser ailleurs pour changer les caractéristiques d'un texte par
+exemple).
+
+\section{Un exemple plus complet : alignement sur le bas de la cellule}
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\newcolumntype{t}{>{\slshape\centering}b{.40\textwidth}}
+\newcolumntype{d}{>{\ttfamily\raggedleft}p{.10\textwidth}}
+
+\begin{center}
+\begin{tabular}{tddd} \hline
+Texte relativement long blah... & A & A & A \tabularnewline \cline{2-4}
+        & A & A & A \tabularnewline \cline{2-4}
+        & B & B & B \tabularnewline \hline
+\end{tabular}
+\end{center}
+\end{verbatim}
+\end{boxedminipage}
+
+\newcolumntype{t}{>{\slshape\centering}b{.40\textwidth}}
+\newcolumntype{d}{>{\ttfamily\raggedleft}p{.10\textwidth}}
+
+\begin{center}
+\begin{tabular}{tddd} \hline
+Texte relativement long blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah & A & A & A \tabularnewline \cline{2-4}
+& A & A & A \tabularnewline \cline{2-4}
+& B & B & B \tabularnewline \hline
+\end{tabular}
+\end{center}
+
+
+
+\section{Un exemple plus complet : alignement sur le milieu vertical
+  de la cellule}
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\newcolumntype{t}{>{\slshape\centering}m{.40\textwidth}}
+\newcolumntype{d}{>{\ttfamily\raggedleft}p{.10\textwidth}}
+
+\begin{center}
+\begin{tabular}{tddd} \hline
+Texte relativement long blah... & A & A & A \tabularnewline \cline{2-4}
+        & A & A & A \tabularnewline \cline{2-4}
+        & B & B & B \tabularnewline \hline
+\end{tabular}
+\end{center}
+\end{verbatim}
+\end{boxedminipage}
+
+\newcolumntype{t}{>{\slshape\centering}m{.40\textwidth}}
+\newcolumntype{d}{>{\ttfamily\raggedleft}p{.10\textwidth}}
+
+\begin{center}
+\begin{tabular}{tddd} \hline
+Texte relativement long blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah & A & A & A \tabularnewline \cline{2-4}
+& A & A & A \tabularnewline \cline{2-4}
+& B & B & B \tabularnewline \hline
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+\section{Notes sur l'utilisation de l'extension \emph{array}}
+
+\vfill{}
+
+\begin{itemize}
+\item Attention : la largeur de la colonne est en réalité la largeur du texte
+  contenu dans la colonne (non compris les espaces gauche et droit autour du
+  texte). On risque donc de dépasser la largeur du texte si la somme des
+  largeurs de colonnes est égale à 100\% (il suffit de le savoir).
+\item L'usage de l'instruction \verb2b{.1\textwidth}2 indique que la colonne
+  doit avoir une largeur équivalente à 10\% de la largeur totale du texte sur la
+  page \emph{et} que ce texte doit être aligné sur la bas de la cellule (b =
+  bottom). On peut aussi centrer le texte verticalement (remplacer \emph{b} par
+  \emph{m}).  \emph{p} produit le fonctionnement standard (alignement sur le
+  haut de la cellule).
+\item La déclaration du type d'alignement vertical est attribuée à une
+  colonne mais, évidemment, son effet va porter sur les lignes ! Il
+  faut le comprendre comme une indication du type d'alignement qu'on
+  va obtenir du texte contenu dans les autres colonnes par rapport à
+  la cellule correspondante : si une cellule de la colonne 1 (type
+  \verb1t1) contient beaucoup de texte, les autres cellules de la même
+  ligne seront alignées sur le bas de cette première cellule. Dans les
+  exemples précédents, si une cellule des 3 colonnes de gauche
+  contenait beaucoup de texte, le texte des autres cellules serait
+  aligné sur le haut de cette cellule !
+ \item Noter qu'il est tout à fait possible d'alterner, dans un même document,
+   l'usage des environnements \emph{tabular} et \emph{tabularx} en fonction des
+   besoins.
+\end{itemize}
+
+\vfill{}
+
+
+
+%% \section{L'extension \emph{multirow}}
+
+%% \vfill
+
+%% Utilisation de l'extension :
+
+%% \begin{boxedminipage}{\textwidth}
+%% \begin{verbatim}
+%% \usepackage{multirow}
+
+%% \begin{tabular}{lr} \hline
+%% \multirow{nbrows}{largeur}[décalage]{Texte} & donnée \\
+%%                                     & donnée \\ \hline
+%% \end{tabular}
+%% \end{verbatim}
+%% \end{boxedminipage}
+
+%% Nous verrons quel peut être l'usage de l'option [décalage] tout à l'heure. Pour
+%% l'instant, nous souhaitons essentiellement voir comment écrire du texte dans
+%% deux cellules (comment regrouper des cellules).
+
+%% \vfill
+
+%% \section{Utilisation de \emph{multirow}}
+
+
+%% \begin{boxedminipage}{\textwidth}
+%% \begin{verbatim}
+%% \begin{center}
+%% \begin{tabular}{|c|cp{.3\textwidth}|} \hline
+%% \multirow{2}{*}{Titre commun} & Donnée & Un texte relativement ... \\ \cline{2-3}
+%%                         & Donnée & Donnée \\ \hline
+%% \multirow{2}{.2\textwidth}{Titre long} & Donnée & Un texte ... \\ \cline{2-3}
+%%                         & Donnée & Donnée \\ \hline
+%% \end{tabular}
+%% \end{center}
+%% \end{verbatim}
+%% \end{boxedminipage}
+
+
+
+%% \begin{center}
+%% \begin{tabular}{|c|cp{.3\textwidth}|} \hline
+%% \multirow{2}{*}{Titre commun} & Donnée & Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau. \\ \cline{2-3}
+%%                         & Donnée & Donnée \\ \hline
+%% \multirow{2}{.2\textwidth}{Titre commun qui contient plus de texte que n'en pourrait contenir une seule cellule, vraiment beacoup plus} & Donnée & Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau. \\ \cline{2-3}
+%%                         & Donnée & Donnée \\ \hline
+%% \end{tabular}
+%% \end{center}
+
+%% %% \begin{center}
+%% %% \begin{tabular}{|c|cc|} \hline
+%% %% \multirow{2}{*}{Titre commun} & Donnée & \begin{minipage}{.3\textwidth}Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau.\end{minipage} \\ \cline{2-3}
+%% %%                         & Donnée & Donnée \\ \hline
+%% %% \multirow{2}{.2\textwidth}{Titre commun qui contient plus de texte que n'en pourrait contenir une seule cellule} & Donnée & \begin{minipage}{.3\textwidth}Un texte relativement long pour voir l'effet des cellules qui contiennent beaucoup de texte sur la mise en page du tableau.\end{minipage} \\ \cline{2-3}
+%% %%                         & Donnée & Donnée \\ \hline
+%% %% \end{tabular}
+%% %% \end{center}
+
+
+%% Elle permet d'améliorer la mise en page du tableau, notamment lorsque celui-ci
+%% contient des cellules qui doivent inclure une grande quantité de texte. Elle
+%% utilise la même syntaxe que \emph{tabular}.
+
+%% On l'appelle dans l'en-tête du document par \verb1\usepackage{array}1 et on
+%% définit la largeur des cellules pour lesquelles on ne souhaite pas de contrôle
+%% automatique en utilisant \verb1m{largeur}1 au lieu de \verb1p{largeur}1.
+
+%% Pour faire intervenir \emph{array}, on définit la largeur d'au-moins une
+%% cellule.
+
+
+%% Avec \emph{array} (\verb1\begin{tabular}{|l|cr|m{.3\textwidth}|} \hline1) :
+  
+%%   \begin{boxedminipage}{\textwidth}
+%% \begin{verbatim}
+%% \begin{tabular}{|l|cr|m{.3\textwidth}|} \hline
+%% Donnée & Donnée & Donnée & \begin{center}Et une case...\end{center}\\ \cline{2-3}
+%% Donnée & Donnée & Donnée & \\ \hline
+%% \end{tabular}
+%% \end{verbatim}
+%%   \end{boxedminipage}
+
+%% \begin{center}
+%% \begin{tabular}{|l|cr|m{.3\textwidth}|} \hline
+%% Donnée & Donnée & Donnée & \begin{center}Et une case du tableau qui contient beaucoup de texte. La dimension de cette case est fixée, pas automatique.\end{center}\\ \cline{2-3}
+%% Donnée & Donnée & Donnée & \\ \hline
+%% \end{tabular}
+%% \end{center}
+
+%% \newpage
+
+%% et sans \emph{array} (\verb1\begin{tabular}{|l|cr|p{.3\textwidth}|} \hline1) :
+
+%%   \begin{boxedminipage}{\textwidth}
+%% \begin{verbatim}
+%% \begin{tabular}{|l|cr|p{.3\textwidth}|} \hline
+%% Donnée & Donnée & Donnée & \begin{center}Et une case...\end{center}\\ \cline{2-3}
+%% Donnée & Donnée & Donnée & \\ \hline
+%% \end{tabular}
+%% \end{verbatim}
+%%   \end{boxedminipage}
+
+%% \begin{center}
+%% \begin{tabular}{|l|cr|p{.3\textwidth}|} \hline
+%% Donnée & Donnée & Donnée & \begin{center}Et une case du tableau qui contient beaucoup de texte. La dimension de cette case est fixée, pas automatique.\end{center}\\ \cline{2-3}
+%% Donnée & Donnée & Donnée & \\ \hline
+%% \end{tabular}
+%% \end{center}
+
+
+\section{Le problème du chevauchement lettres / lignes}
+
+Vous avez probablement remarqué que les lignes horizontales des tableaux
+chevauchent le haut de certaines lettres.
+
+
+\begin{itemize}
+\item Pour empêcher les lettres de chevaucher les lignes horizontales du
+  tableau, on peut introduire une instruction (à n'importe quel endroit du
+  document mais en général dans l'en-tête):
+  \begin{itemize}
+  \item \verb1\setlength{\extrarowheight}{dimension}1
+  \end{itemize}
+\item Dans le tableau précédent, les lettres hautes (notamment les majuscules)
+  touchent les lignes horizontales qui les dominent.
+\item Si on ajoute \verb1\setlength{\extrarowheight}{0.3em}1, dans l'en-tête du
+  document ou avant de composer le tableau, on obtient :
+  \setlength{\extrarowheight}{0.3em}
+
+\begin{center}
+\begin{tabular}{|t|ddd|} \hline
+Texte relativement long blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah & A & A & A \tabularnewline \cline{2-4}
+& A & A & A \tabularnewline \cline{2-4}
+& B & B & B \tabularnewline \hline
+\end{tabular}
+\end{center}
+
+% \item Mais cette procédure peut (lorsqu'on utilise des lignes
+%   verticales, mais cf p.\ref{regles-table}) produire des vides.
+\end{itemize}
+
+Mais l'outil le plus intéressant pour construire les tableaux (en
+combinaison avec \emph{array}) est l'extension \emph{booktabs},
+développée pour construire des tableaux de qualité pour la publication
+de documents écrits.
+
+
+\section{L'extension \emph{booktabs}}
+\label{booktab}
+\setlength{\extrarowheight}{0ex}
+
+\vfill
+\begin{itemize}
+\item \verb1\usepackage{booktabs}1
+\item L'extension \emph{booktabs} s'occupe de formater un tableau en respectant
+  scrupuleusement les nécessités typographiques en vigueur dans l'édition.
+  \begin{itemize}
+  \item Amélioration de la gestion des espaces entre les lignes (pas besoin de
+    modifier arbitrairement l'espacement entre les lignes et le texte).
+  \item Possibilité de faire varier l'épaisseur des lignes (épaisse en haut et
+    en bas, fine à l'intérieur du tableau).
+  \item Compatible avec \emph{array} (on peut fixer la largeur des colonnes et
+    leur alignement vertical par exemple).
+  \item Fonctionne aussi avec \emph{longtable} (cf. p.\ref{longtable}).
+%  \item Permet d'insérer des sauts de lignes dans un texte relativement long.
+  \end{itemize}
+\item Notez qu'un tableau de données NE DOIT PAS comporter de lignes
+  verticales.
+\end{itemize}
+\vfill
+\newpage
+
+\section{Différences entre \emph{array} et \emph{booktabs}}
+
+\begin{itemize}
+\item \emph{array} et \emph{booktabs} peuvent être utilisés simultanément.
+\item Mais \emph{booktabs} doit être considéré comme une couche supplémentaire
+  qui améliore la mise en page.
+  
+  \begin{center}
+    \begin{tabular}{l!{$\rightarrow$}l} \toprule
+      \emph{array} & \emph{booktabs} \tabularnewline \midrule
+      \verb1\hline1 & \verb1\toprule1 \tabularnewline
+      & \verb1\midrule1 \tabularnewline
+      & \verb1\bottomrule1 \tabularnewline \midrule
+      \verb1\cline{N-M}1 & \verb1\cmidrule{N-M}1 \tabularnewline \bottomrule
+    \end{tabular}
+  \end{center}
+\end{itemize}
+
+Notez que les épaisseurs de lignes peuvent ne pas apparaître
+correctement à l'écran (visualisation PDF) mais apparaîtront
+correctement à l'impression.
+
+
+\section{Exemple d'utilisation de \emph{booktabs}}
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\usepackage{booktabs}
+
+\begin{tabular}{lcrrr} \toprule
+  & & Condition 1 & Condition 2 & Condition 3 \tabularnewline \midrule
+  Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \tabularnewline
+  & Taux d'erreur (en \%)  & 14 & 10 & 4 \tabularnewline \cmidrule{2-5}
+  Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+  & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \midrule
+\end{tabular}
+\end{verbatim}
+\end{boxedminipage}
+
+\begin{center}
+  \begin{tabular}{lcrrr} \toprule
+    & & Condition 1 & Condition 2 & Condition 3 \tabularnewline \midrule
+    Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \tabularnewline
+    & Taux d'erreur (en \%)  & 14 & 10 & 4 \tabularnewline \cmidrule{2-5}
+    Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+    & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \midrule
+%%     Et même si l'on a \emph{vraiment} besoin d'insérer un texte relativement long dans cette cellule, son formatage est correct & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \bottomrule
+%%     \multicolumn{3}{l}{\begin{minipage}{.6\textwidth}D'ailleurs un formatage avec extension de la cellule sur la ligne serait certainement plus agréable à lire. Même si le texte qu'elle contient est extrêmement long.\end{minipage}} & &  \\
+%%     & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \bottomrule
+  \end{tabular}
+\end{center}
+
+
+\section{Et en collaboration avec \emph{array}\ldots}
+
+\newcolumntype{t}{>{\slshape\raggedright}b{.20\textwidth}}
+\newcolumntype{s}{>{\sffamily}c}
+\newcolumntype{d}{>{\ttfamily}r}
+
+\begin{boxedminipage}{\textwidth}
+\begin{verbatim}
+\newcolumntype{t}{>{\slshape\raggedright}b{.20\textwidth}}
+\newcolumntype{s}{>{\sffamily}c}
+\newcolumntype{d}{>{\ttfamily}r}
+
+\begin{tabular}{lcrrr} \toprule
+  & & Condition 1 & Condition 2 & Condition 3 \tabularnewline \midrule
+  Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \tabularnewline
+  & Taux d'erreur (en \%)  & 14 & 10 & 4 \tabularnewline \cmidrule{2-5}
+  Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+  & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \midrule
+\end{tabular}
+\end{verbatim}
+\end{boxedminipage}
+
+\begin{center}
+  \begin{tabular}{tsddd} \toprule
+    & & Condition 1 & Condition 2 & Condition 3 \tabularnewline \midrule
+    Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \tabularnewline
+    & Taux d'erreur (en \%)  & 14 & 10 & 4 \tabularnewline \cmidrule{2-5}
+    Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+    & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \midrule
+%%     Et même si l'on a \emph{vraiment} besoin d'insérer un texte relativement long dans cette cellule, son formatage est correct & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \bottomrule
+%%     \multicolumn{3}{l}{\begin{minipage}{.6\textwidth}D'ailleurs un formatage avec extension de la cellule sur la ligne serait certainement plus agréable à lire. Même si le texte qu'elle contient est extrêmement long.\end{minipage}} & &  \\
+%%     & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \bottomrule
+  \end{tabular}
+\end{center}
+
+
+% \section{\ldots et avec \emph{tabularx}}
+
+% \begin{boxedminipage}{\textwidth}
+% \begin{verbatim}
+% \newcolumntype{s}{>{\slshape\centering}m{.2\textwidth}}
+
+% \begin{tabular}{Xsrrr} \toprule
+%   & & Condition 1 & Condition 2 & Condition 3 \tabularnewline \midrule
+%   Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \tabularnewline
+%   & Taux d'erreur (en \%)  & 14 & 10 & 4 \tabularnewline \cmidrule{2-5}
+%   Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \tabularnewline
+%   & Taux d'erreur (en \%)  & 14 & 24 & 34 \tabularnewline \midrule
+% \end{tabular}
+% \end{verbatim}
+% \end{boxedminipage}
+
+% %\newcolumntype{s}{>{\slshape}c}
+% \newcolumntype{s}{>{\slshape\centering}m{.3\textwidth}}
+% \begin{center}
+%   \begin{tabularx}{.9\textwidth}{Xsrrr} \toprule
+%     & & Condition 1 & Condition 2 & Condition 3 \\ \midrule
+%     Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \\
+%     & Taux d'erreur (en \%)  & 14 & 10 & 4 \\ \cmidrule{2-5}
+%     Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \midrule
+%   \end{tabularx}
+% \end{center}
+
+
+\section{Rappels essentiels sur la composition d'un tableau de données}
+\label{regles-table}
+\vfill
+
+La construction d'un tableau répond à des règles strictes qu'il convient de
+suivre pour les publications de travaux de recherche. En voici quelques unes
+comme bref rappel :
+
+\begin{itemize}
+\item Un tableau ne doit jamais contenir de lignes verticales !
+  \emph{Jamais} !
+\item Les lignes horizontales doivent servir à séparer des éléments
+  qui sont extrêments différents les uns des autres. Inutile de
+  séparer toutes les lignes du tableau par une ligne horizontale si
+  certaines lignes peuvent être groupées ensemble.
+\item De fait, deux lignes correspondant à des données qui partagent
+  un même en-tête doivent obéir à une règle simple : elles ne sont
+  séparées par aucune ligne. Il est inutile --voire gênant-- de
+  regrouper des cellules verticalement ; le simple fait que leur
+  en-tête soit unique permet d'identifier les lignes comme relevant
+  d'une même catégorie.
+\item Par ailleurs, il est toujours essentiel, lorsque l'on rencontre
+  des problèmes de mise en page, de se poser la question de la
+  légitimité typographique de ce que l'on souhaite faire dans un
+  tableau.
+\item Si vous n'y arrivez pas avec \LaTeX, c'est (peut-être)
+  simplement parce que vous devriez changer votre choix\ldots
+\item Un tableau doit être le plus succinct possible :
+  \begin{itemize}
+  \item limiter les textes longs au strict minimum, ceux-ci trouvant plutôt leur
+    place dans le corps du texte ou dans le titre du tableau.
+  \item Ne pas abuser des changements de police de caractères
+    (homogénéité au moins à l'intérieur des colonnes, à part
+    éventuellement pour la ligne d'en-tête et la distinction texte /
+    nombres).
+  \end{itemize}
+\item Si vous respectez ces quelques règles, vous ne devriez pas perdre de temps
+  dans la composition de vos tableaux.
+\end{itemize}
+
+\vfill
+
+
+% \newpage
+
+% \vfill
+
+% \begin{center}
+%   Bon courage !
+% \end{center}
+
+% \vfill
+
+%% \section{Un tableau typographiquement correct est en réalité extrêmement simple}
+
+%% \begin{boxedminipage}{\textwidth}
+%% \begin{verbatim}
+%%   \begin{tabular}{m{.2\textwidth}lrrr} \hline
+%%     & & Condition 1 & Condition 2 & Condition 3 \\ \hline
+%%     Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \\
+%%     & Taux d'erreur (en \%)  & 14 & 10 & 4 \\ \hline
+%%     Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \hline
+%%     Texte long & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \hline
+%%   \end{tabular}
+%% \end{verbatim}
+%% \end{boxedminipage}
+
+%% \begin{center}
+%%   \begin{tabular}{m{.2\textwidth}lrrr} \hline
+%%     & & Condition 1 & Condition 2 & Condition 3 \\ \hline
+%%     Expérience 1 & Temps de réaction (en ms) & 600 & 700 & 800 \\
+%%     & Taux d'erreur (en \%)  & 14 & 10 & 4 \\ \hline
+%%     Expérience 2 & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \hline
+%%     Et même si l'on a \emph{vraiment} besoin d'insérer un texte relativement long dans cette cellule, son formatage est correct. On sait qu'elle fournit une information sur les deux lignes correspondantes. & Temps de réaction (en ms) & 700 & 700 & 700 \\
+%%     & Taux d'erreur (en \%)  & 14 & 24 & 34 \\ \hline
+%%   \end{tabular}
+%% \end{center}
+
+%% \section{N'ayez pas peur de la construction de tableaux avec \LaTeX}
+
+%% \vfill
+
+%% \begin{itemize}
+%% \item Tout ce que nous venons de voir comme problèmes avait surtout pour objet
+%%   de vous amener à réfléchir sur le mécanisme de contruction d'un tableau.
+%%   Construire un tableau avec \LaTeX\ est en réalité beaucoup plus simple que ce
+%%   que l'on vient de voir, à condition de construire des tableaux dans les
+%%   \emph{règles de l'art}.
+%% \item Il subsiste cependant une petite difficulté. Si vous regardez bien les
+%%   cellules contenant l'intitulé des \og Expériences \fg, vous pourrez déceler un
+%%   léger décalage vertical entre le contenu de ces cellules et les autres
+%%   cellules. Ce décalage a été introduit par l'instruction
+%%   \verb2\setlength{\extrarowheight}{1ex}2. Nous n'avons en réalité pas non plus
+%%   besoin de cette instruction pour construire des tableaux corrects. Nous allons
+%%   au contraire utiliser l'extension \emph{booktabs} qui s'occupera de générer un
+%%   tableau parfait sans intervention particulière de notre part.
+%% \end{itemize}
+
+%% \vfill
+
+

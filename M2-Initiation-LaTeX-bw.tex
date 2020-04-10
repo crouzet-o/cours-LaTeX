@@ -1,0 +1,64 @@
+\documentclass[12pt]{report}
+
+
+%% Variables
+
+\usepackage{ifthen}
+\newboolean{coloured}
+\setboolean{coloured}{false}
+%\setboolean{coloured}{true}
+
+\input{00-header}
+\input{00-titre-M2-Initiation-LaTeX}
+
+
+\begin{document}
+\sffamily
+%% \begin{abstract}
+%%   Initiation à l'usage de \LaTeX{} pour les étudiants de l'école doctorale \og
+%%   Connaissance, Langages, Culture \fg.
+%% \end{abstract}
+\maketitle
+
+\input{00-after-document}
+
+\tableofcontents
+
+
+%\part{Premier contact avec \LaTeX}
+
+\input{00-M2-structure-du-cours}
+
+\end{document}
+
+
+
+
+%% Installation d'une extension sous windows :
+
+%% Aller sur CTAN
+%% Télécharger l'archive correspondant à l'extension
+%% Extraire l'archive dans c:\Program Files\TeXLive\texmf-local\
+
+%% Démarrer -> Prgrammes -> Accessoires -> Invite de commande
+
+%% cd C:\Program Files\TeXLive\texmf-local\extension\
+
+%% latex extension.ins
+%% latex extension.dtx
+
+%% Démarrer -> Programmes -> TeXLive -> Maintenance -> Rebuild ls-R filenames databases
+
+%% Utiliser l'extension.
+
+
+
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "recueil-initiation-LaTeX"
+%%% End: 

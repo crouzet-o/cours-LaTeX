@@ -1,0 +1,50 @@
+
+
+
+\section{Les bases de l'indexation}
+
+
+\verb1\usepackage{index}1
+
+\verb1\proofmodetrue1
+
+\verb1\newindex{default}{idx}{ind}{Index des notions}1 ou \verb1\makeindex1
+
+\verb1\newindex{aut}{adx}{and}{Index des auteurs}1
+
+\begin{verbatim}
+  latex file.tex
+  makeindex (= makeindex -o file.ind file.idx)
+  makeindex -o file.and file.adx
+  latex file.tex
+
+  latex file.tex && makeindex file.idx && latex file.tex
+\end{verbatim}
+
+\verb1\makeindex1 (dans le préambule du document)
+
+mot à indexer\verb1\index{mot à indexer}1
+
+ou
+
+\verb1\index{mot à indexer}1mot à indexer (pas d'espace au cas où un saut de
+page venait séparer le mot de son indexation.)
+
+ou
+
+\verb1\index*{mot à index}1
+
+
+
+\verb1\printindex1 à l'endroit où l'on souhaite faire apparaître l'index.
+
+
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "recueil-initiation-LaTeX"
+%%% End: 
