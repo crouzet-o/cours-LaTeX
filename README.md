@@ -10,5 +10,5 @@ Le support de cours en PDF est disponible ici :
 Les sources du cours sont dans le répertoire [support/](support/).
 
 Un exemple pour un mémoire est disponible dans le répertoire
-[gabarits/memoire/](gabarits/memoire/).
+[gabarits/memoires/](gabarits/memoires/).
 
