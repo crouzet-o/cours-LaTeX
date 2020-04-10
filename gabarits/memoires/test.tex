@@ -1,0 +1,449 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{array,booktabs,tabularx,float}
+\usepackage{graphicx}
+
+\usepackage{type1ec}
+\usepackage[T1]{fontenc}
+\usepackage{type1ec}
+\usepackage{lettrine}
+\usepackage{setspace} % \singlespacing (default), \doublespacing, \onehalfspacing
+
+\usepackage[francais]{babel}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{scalefnt}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{5} %% Détermination du niveau d'inclusion des
+%% titres dans la table des matières. 1 = part, 2 = chapter, 3 =
+%% section, 4 = subsection, 5 = subsubsection, 6 = paragraph, 7 =
+%% subparagraph
+
+
+%% Pour des présentations alternatives à ce que propose LaTeX en standard
+
+% Codage de la numérotation
+%\def\thepart{\Roman{part}} % \Roman
+\def\thechapter{\Roman{chapter}} % \Roman
+\def\thesection{\Alph{section}}
+\def\thesubsection{\Roman{subsection}} % \Alph
+\def\thesubsubsection{\arabic{subsubsection}} % \Alph
+\def\theparagraph{\roman{paragraph}} % \Alph
+\def\thesubparagraph{\alph{subparagraph}} % \Alph
+
+% Apparence des titres
+\titleformat{\part}[display]{\raggedleft\Huge\scalefont{1.3}\sffamily\bfseries\thispagestyle{empty}}{\partname}{0cm}{}
+\titleformat{\chapter}[display]{\raggedleft\Huge\sffamily\bfseries}{\chaptertitlename\ \thechapter}{0cm}{}
+\titleformat{\section}{\Large\sffamily\bfseries}{\thesection)\quad}{0cm}{}
+\titleformat{\subsection}{\Large\sffamily}{\thesubsection --\quad}{0cm}{}
+\titleformat{\subsubsection}{\large\sffamily\itshape\raggedright}{\thesubsubsection.\quad}{0cm}{}
+\titleformat{\paragraph}{\normalsize\sffamily\itshape\raggedright}{\theparagraph\quad}{0cm}{}
+\titleformat{\subparagraph}{\normalsize\sffamily\itshape\raggedright}{\thesubparagraph\quad}{0cm}{}
+
+
+% Codage de la numÃ©rotation
+%% Pour des numÃ©rotations standard gÃ©nÃ©ralisÃ©es aux paragraphes
+\def\thechapter{\arabic{chapter}} % \Roman
+\def\thesection{\arabic{chapter}.\arabic{section}}
+\def\thesubsection{\arabic{chapter}.\arabic{section}.\arabic{subsection}} % \Alph
+\def\thesubsubsection{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}} % \Alph
+\def\theparagraph{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}} % \Alph
+\def\thesubparagraph{} % \Alph
+
+% Apparence des titres
+\titleformat{\part}[display]{\raggedleft\Huge\scalefont{1.3}\sffamily\bfseries\thispagestyle{empty}}{\partname}{0cm}{}
+\titleformat{\chapter}[display]{\raggedleft\Huge\sffamily\bfseries}{\chaptertitlename\ \thechapter}{0cm}{}
+\titleformat{\section}{\Large\sffamily\bfseries}{\thesection\quad}{0cm}{}
+\titleformat{\subsection}{\Large\sffamily}{\thesubsection\quad}{0cm}{}
+\titleformat{\subsubsection}{\large\sffamily\itshape\raggedright}{\thesubsubsection\quad}{0cm}{}
+\titleformat{\paragraph}{\normalsize\sffamily\itshape\raggedright}{\theparagraph\quad}{0cm}{}
+\titleformat{\subparagraph}{\normalsize\sffamily\itshape\raggedright}{}{0cm}{}
+
+
+\begin{document}
+
+\begin{titlepage}
+  \singlespacing
+  \sffamily
+  \begin{center}
+    {\bfseries\large Université de Nantes}\\
+    {UFR Lettres et Langages}\\
+    {Année Universitaire 2019--2020}\\
+    \vfill
+
+    {\Large\bfseries Titre du Mémoire}
+
+    \vspace{2ex} {\large \'Eventuellement un sous-titre}
+     
+    \vspace{8ex}
+    Prénom Nom\\
+    Date
+
+    \begin{flushright}
+      \vfill
+      \begin{tabular}{lr}
+        Membres du Jury : & \\
+        & Nom, Prénom (directeur du mémoire)\\
+        & Nom, prénom\\
+        & Nom, prénom\\
+      \end{tabular}
+    \end{flushright}
+    \vspace{8ex}
+    
+    { Master 2 mention \og Langues et Langages \fg\\
+      Spécialité \og Sciences du Langage \fg}
+  \end{center}
+\end{titlepage}
+
+\clearpage
+\doublespacing
+\tableofcontents
+
+\part{Niveau part}
+
+\chapter{Niveau chapter}
+
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne.
+
+\singlespacing
+
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne. 
+Ceci est un exemple de texte avec une simple interligne.
+
+\onehalfspacing
+
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+Ceci est un exemple de texte avec une interligne 1.5. 
+
+\doublespacing
+
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne. 
+Ceci est un exemple de texte avec une double interligne.
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\paragraph{Niveau paragraph}
+
+\subparagraph{Niveau subparagraph}
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+
+\part{Niveau part}
+
+Surtout, ne jamais modifier la mise en forme des sections au milieu
+d'un document ! C'est juste pour vous permettre de comparer ! Le mode
+de numérotation ci-dessous n'est qu'un exemple illustratif\ldots pas
+forcément le meilleur\ldots
+
+% Codage de la numérotation
+%\def\thepart{\Roman{part}} % \Roman
+\def\thechapter{\Roman{chapter}} % \Roman
+\def\thesection{\Alph{section}}
+\def\thesubsection{\roman{subsection}} % \Alph
+\def\thesubsubsection{\arabic{subsubsection}} % \Alph
+\def\theparagraph{\alph{paragraph}} % \Alph
+\def\thesubparagraph{\alph{subparagraph}} % \Alph
+
+% Apparence des titres
+\titleformat{\part}[display]{\raggedleft\Huge\scalefont{1.3}\sffamily\bfseries\thispagestyle{empty}}{\partname}{0cm}{}
+\titleformat{\chapter}[display]{\raggedleft\Huge\sffamily\bfseries}{\chaptertitlename\ \thechapter}{0cm}{}
+\titleformat{\section}{\Large\sffamily\bfseries}{\thesection)\quad}{0cm}{}
+\titleformat{\subsection}{\Large\sffamily}{\thesubsection --\quad}{0cm}{}
+\titleformat{\subsubsection}{\large\sffamily\itshape\raggedright}{\thesubsubsection.\quad}{0cm}{}
+\titleformat{\paragraph}{\normalsize\sffamily\itshape\raggedright}{\theparagraph\quad}{0cm}{}
+\titleformat{\subparagraph}{\normalsize\sffamily\itshape\raggedright}{\thesubparagraph\quad}{0cm}{}
+
+\chapter{Niveau chapter}
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\section{Niveau section}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsection{Niveau subsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+\subsubsection{Niveau subsubsection}
+
+
+
+
+
+
+
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
